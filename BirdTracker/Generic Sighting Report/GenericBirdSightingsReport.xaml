@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="BirdTracker.GenericBirdSightingsReport"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:custom="clr-namespace:eBirdLibrary;assembly=eBirdLibrary"                 
+             xmlns:viewModel="clr-namespace:BirdTracker"             
+             xmlns:local="clr-namespace:BirdTracker.Support"             
+             mc:Ignorable="d" 
+             d:DesignHeight="293" d:DesignWidth="380" Name="ReportCtrl" Width="395" Background="Transparent" Loaded="ReportCtrl_Loaded" >
+    <UserControl.Resources>
+        <viewModel:GenericSightingReportVM x:Key="BirdVM"/>
+        <local:NullImageConverter x:Key="nullImageConverter"/>
+        <viewModel:Species_Location_Converter x:Key="SLC"/>
+    </UserControl.Resources>
+    <Border BorderBrush="#262830" BorderThickness="4,4,4,4" CornerRadius="12,12,12,12" Margin="4,8,4,4">
+        <Grid Width="380" DataContext="{StaticResource BirdVM}" Background="#262830" x:Name="MainGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel Width="380" Orientation="Horizontal" Grid.Row="0">
+            <TextBlock Width="360" Text="{Binding Path=Report_Title}" TextAlignment="Left" Background="#262830" Foreground="White" FontWeight="Bold" />
+                <Button Width="20" Command="{Binding Source={StaticResource BirdVM}, Path=CLOSE_REPORT_CMD}" Content="x" Foreground="White" FontWeight="Bold" Background="Transparent"></Button>
+            </StackPanel>
+            <ListBox Width="380" Name="lbReports" Grid.Row="1" HorizontalAlignment="Center" 
+            VerticalAlignment="Stretch" Background="#262830" ItemsSource="{Binding Path=ListSightings, Mode=TwoWay}" BorderThickness="0">
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Exclude Species" Command="{Binding Source={StaticResource BirdVM}, Path=EXCLUDE_SPECIES_CMD}"  CommandParameter="{Binding PlacementTarget, RelativeSource=
+         {RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}">                            
+                        </MenuItem>
+                    </ContextMenu>                        
+                </ListBox.ContextMenu>
+                <ListBox.Resources>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent" />
+                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Gray" />
+                    <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent" />
+                </ListBox.Resources>
+                <ListBox.ItemTemplate >
+                    <DataTemplate>
+                        <Border x:Name="border1" CornerRadius="23" BorderThickness="1" BorderBrush="#19000000" Width="356" >
+                            <Border x:Name="border2" CornerRadius="22" BorderThickness="1" BorderBrush="#33000000" Width="354" >
+                                <Border x:Name="border3" CornerRadius="21" BorderThickness="1" BorderBrush="#66000000" Width="352">
+                                    <Border x:Name="border4" CornerRadius="20" BorderThickness="1" BorderBrush="#80000000" Background="White" Padding="10" Width="350">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0" Width="50" Source="{Binding Path=ThumbNail}" Margin="2,2,2,2" />
+                                            <StackPanel Grid.Column="1" Name="stkPanel">
+                                                <!--<ToolBar >
+                                                    <Button x:Name="Map" Width="20" Height="20" Background="Gray" DataContext="{StaticResource BirdVM}" Command="{Binding Path=MAP_LOCATION_COMMAND}" />
+                                                </ToolBar>-->
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Name="CommonName" Grid.Column="0" FontWeight="bold" Text="{Binding Path=_common_name}" />
+                                                    <TextBlock Name="ScientificName" Grid.Column="1" FontWeight="normal" FontStyle="Italic" Text="{Binding Path=_scientific_name, StringFormat=' ({0})'}" TextDecorations="Underline">
+                                                        <TextBlock.InputBindings>
+                                                            <MouseBinding Command="{Binding Source={StaticResource BirdVM}, Path=GET_SPECIES_REPORT_CMD}" MouseAction="LeftClick">
+                                                                <MouseBinding.CommandParameter> 
+                                                                    <MultiBinding Converter="{StaticResource SLC}">
+                                                                        <Binding ElementName="CommonName" Path="Text" />
+                                                                        <Binding ElementName="ScientificName" Path="Text" />
+                                                                    </MultiBinding>                                                                    
+                                                                </MouseBinding.CommandParameter>                                                                                                                                
+                                                            </MouseBinding>
+                                                        </TextBlock.InputBindings>                                                        
+                                                    </TextBlock>
+                                                </Grid>
+                                                <TextBlock FontWeight="Normal" Text="{Binding Path=_location_name, StringFormat='Location: {0}'}" />
+                                                <TextBlock FontWeight="Normal" Text="{Binding Path=_observation_date, StringFormat='Reported: {0}'}" />
+                                                <TextBlock Name="LocationId" FontWeight="Normal" Text="{Binding Path=_location_id, StringFormat='Location ID: {0}'}"  TextDecorations="Underline">
+                                                       <TextBlock.InputBindings>
+                                                           <MouseBinding Command="{Binding Source={StaticResource BirdVM}, Path=GET_LOCATIONREPORT_CMD}" CommandParameter="{Binding Text,ElementName=LocationId}" MouseAction="LeftClick"/>
+                                                       </TextBlock.InputBindings>
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                            </Border>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Border>
+</UserControl>

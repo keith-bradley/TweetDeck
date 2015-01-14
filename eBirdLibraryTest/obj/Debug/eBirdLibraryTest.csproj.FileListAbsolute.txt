@@ -1,0 +1,7 @@
+C:\Code\Keith Play\Tap1\eBirdLibraryTest\bin\Debug\eBirdLibraryTest.dll
+C:\Code\Keith Play\Tap1\eBirdLibraryTest\bin\Debug\eBirdLibraryTest.pdb
+C:\Code\Keith Play\Tap1\eBirdLibraryTest\bin\Debug\eBirdLibrary.dll
+C:\Code\Keith Play\Tap1\eBirdLibraryTest\bin\Debug\eBirdLibrary.pdb
+C:\Code\Keith Play\Tap1\eBirdLibraryTest\obj\Debug\eBirdLibraryTest.dll
+C:\Code\Keith Play\Tap1\eBirdLibraryTest\obj\Debug\eBirdLibraryTest.pdb
+C:\Code\Keith Play\Tap1\eBirdLibraryTest\obj\Debug\eBirdLibraryTest.csprojResolveAssemblyReference.cache

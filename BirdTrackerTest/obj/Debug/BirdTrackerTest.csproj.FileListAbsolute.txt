@@ -1,0 +1,11 @@
+C:\Code\Keith Play\Tap1\BirdTrackerTest\bin\Debug\BirdTrackerTest.dll
+C:\Code\Keith Play\Tap1\BirdTrackerTest\bin\Debug\BirdTrackerTest.pdb
+C:\Code\Keith Play\Tap1\BirdTrackerTest\obj\Debug\BirdTrackerTest.dll
+C:\Code\Keith Play\Tap1\BirdTrackerTest\obj\Debug\BirdTrackerTest.pdb
+C:\Code\Keith Play\Tap1\BirdTrackerTest\bin\Debug\BirdTracker.exe
+C:\Code\Keith Play\Tap1\BirdTrackerTest\bin\Debug\eBirdLibrary.dll
+C:\Code\Keith Play\Tap1\BirdTrackerTest\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
+C:\Code\Keith Play\Tap1\BirdTrackerTest\bin\Debug\BirdTracker.pdb
+C:\Code\Keith Play\Tap1\BirdTrackerTest\bin\Debug\eBirdLibrary.pdb
+C:\Code\Keith Play\Tap1\BirdTrackerTest\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
+C:\Code\Keith Play\Tap1\BirdTrackerTest\obj\Debug\BirdTrackerTest.csprojResolveAssemblyReference.cache

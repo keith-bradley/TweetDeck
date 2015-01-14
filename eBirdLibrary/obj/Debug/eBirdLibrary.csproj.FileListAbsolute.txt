@@ -1,0 +1,5 @@
+C:\Code\Keith Play\Tap1\eBirdLibrary\bin\Debug\eBirdLibrary.dll
+C:\Code\Keith Play\Tap1\eBirdLibrary\bin\Debug\eBirdLibrary.pdb
+C:\Code\Keith Play\Tap1\eBirdLibrary\obj\Debug\eBirdLibrary.dll
+C:\Code\Keith Play\Tap1\eBirdLibrary\obj\Debug\eBirdLibrary.pdb
+C:\Code\Keith Play\Tap1\eBirdLibrary\obj\Debug\eBirdLibrary.csprojResolveAssemblyReference.cache

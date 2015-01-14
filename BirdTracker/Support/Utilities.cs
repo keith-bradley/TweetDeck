@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Xml.Linq;
+using System.IO;
+
+namespace BirdTracker.Support
+{
+    /// <summary>
+    /// A collection of common static methods.
+    /// </summary>
+    public class Utilities
+    {
+        /// <summary>
+        /// Loads an xml string into a XDocument object so that you can use LINQ to XML.
+        /// </summary>
+        /// <param name="strXML">The xml string</param>
+        /// <returns>null or the XDocument object</returns>
+        /// <exception cref="ArgumentException">Thrown when strXML is null or blank</exception>
+        public static XDocument load_xml_from_string(String strXML)
+        {
+            if (String.IsNullOrEmpty(strXML))
+            {
+                throw new ArgumentException("XML string cannot be null or blank", "load_xml_from_string");
+            }
+
+            XDocument xdoc1 = XDocument.Load(new StringReader(strXML));
+            return (xdoc1);
+        }
+    
+    }
+}

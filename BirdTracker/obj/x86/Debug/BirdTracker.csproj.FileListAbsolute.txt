@@ -1,0 +1,25 @@
+C:\Code\Keith Play\Tap1\BirdTracker\bin\Debug\BirdTracker.exe
+C:\Code\Keith Play\Tap1\BirdTracker\bin\Debug\BirdTracker.pdb
+C:\Code\Keith Play\Tap1\BirdTracker\bin\Debug\eBirdLibrary.dll
+C:\Code\Keith Play\Tap1\BirdTracker\bin\Debug\eBirdLibrary.pdb
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Debug\MainWindow.baml
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Debug\MainWindow.g.cs
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Debug\App.g.cs
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Debug\BirdTracker_MarkupCompile.cache
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Debug\BirdTracker.g.resources
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Debug\BirdTracker.Properties.Resources.resources
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Debug\BirdTracker.exe
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Debug\BirdTracker.pdb
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Debug\BirdTracker_MarkupCompile.lref
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Debug\Generic Sighting Report\GenericBirdSightingsReport.g.cs
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Debug\Generic Sighting Report\GenericBirdSightingsReport.baml
+C:\Code\Keith Play\Tap1\BirdTracker\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
+C:\Code\Keith Play\Tap1\BirdTracker\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Debug\Mapping\mapWindow.baml
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Debug\Mapping\mapWindow.g.cs
+C:\Code\Keith Play\Tap1\BirdTracker\bin\Debug\BirdTracker.exe.config
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Debug\Exclude Librarian\ExcludeListUC.baml
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Debug\Exclude Librarian\ExcludeListUC.g.cs
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Debug\BirdTracker.csprojResolveAssemblyReference.cache
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Debug\BirdTracker.csproj.GenerateResource.Cache

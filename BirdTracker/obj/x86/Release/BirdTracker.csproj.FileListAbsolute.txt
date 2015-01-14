@@ -1,0 +1,30 @@
+C:\Code\Keith Play\Tap1\BirdTracker\bin\Release\BirdTracker.exe.config
+C:\Code\Keith Play\Tap1\BirdTracker\bin\Release\BirdTracker.exe
+C:\Code\Keith Play\Tap1\BirdTracker\bin\Release\BirdTracker.pdb
+C:\Code\Keith Play\Tap1\BirdTracker\bin\Release\eBirdLibrary.dll
+C:\Code\Keith Play\Tap1\BirdTracker\bin\Release\Microsoft.Maps.MapControl.WPF.dll
+C:\Code\Keith Play\Tap1\BirdTracker\bin\Release\eBirdLibrary.pdb
+C:\Code\Keith Play\Tap1\BirdTracker\bin\Release\Microsoft.Maps.MapControl.WPF.xml
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\Generic Sighting Report\GenericBirdSightingsReport.g.cs
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\Local Sightings Report\LocalBirdSightingsReport.g.cs
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\MainWindow.g.cs
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\Mapping\mapWindow.g.cs
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\Notable Sightings Report\NotableBirdSightingsReport.g.cs
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\Species Sightings Report\SpeciesBirdSightingsReport.g.cs
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\App.g.cs
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\GeneratedInternalTypeHelper.g.cs
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\BirdTracker_MarkupCompile.cache
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\BirdTracker_MarkupCompile.lref
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\Generic Sighting Report\GenericBirdSightingsReport.baml
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\Local Sightings Report\LocalBirdSightingsReport.baml
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\MainWindow.baml
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\Mapping\mapWindow.baml
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\Notable Sightings Report\NotableBirdSightingsReport.baml
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\Species Sightings Report\SpeciesBirdSightingsReport.baml
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\BirdTracker.g.resources
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\BirdTracker.Properties.Resources.resources
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\BirdTracker.exe
+C:\Code\Keith Play\Tap1\BirdTracker\obj\x86\Release\BirdTracker.pdb

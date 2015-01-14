@@ -1,0 +1,5 @@
+C:\Code\Keith Play\Tap1\eBirdLibrary\bin\Release\eBirdLibrary.dll
+C:\Code\Keith Play\Tap1\eBirdLibrary\bin\Release\eBirdLibrary.pdb
+C:\Code\Keith Play\Tap1\eBirdLibrary\obj\Release\ResolveAssemblyReference.cache
+C:\Code\Keith Play\Tap1\eBirdLibrary\obj\Release\eBirdLibrary.dll
+C:\Code\Keith Play\Tap1\eBirdLibrary\obj\Release\eBirdLibrary.pdb

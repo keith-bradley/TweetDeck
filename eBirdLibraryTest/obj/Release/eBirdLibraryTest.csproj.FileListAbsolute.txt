@@ -1,0 +1,7 @@
+C:\Code\Keith Play\Tap1\eBirdLibraryTest\bin\Release\eBirdLibraryTest.dll
+C:\Code\Keith Play\Tap1\eBirdLibraryTest\bin\Release\eBirdLibraryTest.pdb
+C:\Code\Keith Play\Tap1\eBirdLibraryTest\bin\Release\eBirdLibrary.dll
+C:\Code\Keith Play\Tap1\eBirdLibraryTest\bin\Release\eBirdLibrary.pdb
+C:\Code\Keith Play\Tap1\eBirdLibraryTest\obj\Release\ResolveAssemblyReference.cache
+C:\Code\Keith Play\Tap1\eBirdLibraryTest\obj\Release\eBirdLibraryTest.dll
+C:\Code\Keith Play\Tap1\eBirdLibraryTest\obj\Release\eBirdLibraryTest.pdb
