@@ -5,6 +5,10 @@ using System.Text;
 using System.Xml.Linq;
 using System.IO;
 
+/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015 
+
 namespace BirdTracker.Exclude_Librarian
 {
     /// <summary>
