@@ -5,6 +5,10 @@ using System.Text;
 using System.ComponentModel;
 using System.Windows.Media.Imaging;
 
+/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
 namespace BirdTracker.Exclude_Librarian
 {
     public class ExcludeListItem : INotifyPropertyChanged
