@@ -148,3 +148,48 @@ BirdTracker/obj/x86/Debug/App.g.i.cs
 BirdTracker/obj/x86/Debug/BirdTracker.csproj.FileListAbsolute.txt
 *.trx
 *.pdb
+BirdTracker/obj/x86/Debug/App.g.i.cs
+BirdTracker/obj/x86/Debug/App.g.i.cs
+BirdTracker/obj/x86/Debug/BirdTracker.csproj.FileListAbsolute.txt
+BirdTracker/obj/x86/Debug/BirdTracker.csproj.GenerateResource.Cache
+BirdTracker/obj/x86/Debug/BirdTracker.csprojResolveAssemblyReference.cache
+BirdTracker/obj/x86/Debug/BirdTracker.exe
+BirdTracker/obj/x86/Debug/BirdTracker.g.resources
+BirdTracker/obj/x86/Debug/BirdTracker.Properties.Resources.resources
+BirdTracker/obj/x86/Debug/BirdTracker_MarkupCompile.cache
+BirdTracker/obj/x86/Debug/BirdTracker_MarkupCompile.i.cache
+BirdTracker/obj/x86/Debug/BirdTracker_MarkupCompile.i.lref
+BirdTracker/obj/x86/Debug/BirdTracker_MarkupCompile.lref
+BirdTracker/obj/x86/Debug/DesignTimeResolveAssemblyReferences.cache
+BirdTracker/obj/x86/Debug/Exclude Librarian/ExcludeListUC.baml
+BirdTracker/obj/x86/Debug/Exclude Librarian/ExcludeListUC.g.cs
+BirdTracker/obj/x86/Debug/Exclude Librarian/ExcludeListUC.g.i.cs
+BirdTracker/obj/x86/Debug/GeneratedInternalTypeHelper.g.cs
+BirdTracker/obj/x86/Debug/Generic Sighting Report/GenericBirdSightingsReport.baml
+BirdTracker/obj/x86/Debug/Generic Sighting Report/GenericBirdSightingsReport.g.cs
+BirdTracker/obj/x86/Debug/Generic Sighting Report/GenericBirdSightingsReport.g.i.cs
+BirdTracker/obj/x86/Debug/MainWindow.baml
+BirdTracker/obj/x86/Debug/MainWindow.g.i.cs
+*.baml
+BirdTracker/obj/x86/Debug/Mapping/mapWindow.g.cs
+BirdTracker/obj/x86/Debug/Mapping/mapWindow.g.i.cs
+BirdTracker/obj/x86/Debug/Pin Map/PinMapWindow.g.cs
+BirdTracker/obj/x86/Debug/Pin Map/PinMapWindow.g.i.cs
+BirdTrackerTest/bin/Debug/BirdTracker.exe
+BirdTrackerTest/bin/Debug/BirdTrackerTest.dll
+BirdTrackerTest/bin/Debug/eBirdLibrary.dll
+BirdTrackerTest/bin/Debug/Microsoft.Maps.MapControl.WPF.dll
+BirdTrackerTest/bin/Debug/Microsoft.Maps.MapControl.WPF.xml
+BirdTrackerTest/obj/Debug/BirdTrackerTest.csproj.FileListAbsolute.txt
+BirdTrackerTest/obj/Debug/BirdTrackerTest.csprojResolveAssemblyReference.cache
+BirdTrackerTest/obj/Debug/BirdTrackerTest.dll
+eBirdLibrary/bin/Debug/eBirdLibrary.dll
+eBirdLibrary/obj/Debug/eBirdLibrary.csproj.FileListAbsolute.txt
+eBirdLibrary/obj/Debug/eBirdLibrary.csprojResolveAssemblyReference.cache
+eBirdLibrary/obj/Debug/eBirdLibrary.dll
+eBirdLibraryTest/bin/Debug/eBirdLibrary.dll
+eBirdLibraryTest/bin/Debug/eBirdLibraryTest.dll
+BirdTrackerTest/obj/Debug/BirdTrackerTest.csproj.FileListAbsolute.txt
+eBirdLibrary/obj/Debug/eBirdLibrary.csproj.FileListAbsolute.txt
+eBirdLibraryTest/obj/Debug/eBirdLibraryTest.csprojResolveAssemblyReference.cache
+BirdTracker/obj/x86/Debug/App.g.i.cs
