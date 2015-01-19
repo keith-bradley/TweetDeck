@@ -33,7 +33,6 @@ namespace BirdTracker.Exclude_Librarian
             }
         }
 
-
         /// <summary>
         /// Event handler when the report is first loaded.
         /// </summary>

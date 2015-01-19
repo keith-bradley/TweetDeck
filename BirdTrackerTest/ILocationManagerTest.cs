@@ -6,6 +6,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BirdTracker.Location_Manager;
 using BirdTracker.Interfaces;
 
+/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
 namespace BirdTrackerTest
 {
     [TestClass]

@@ -8,6 +8,10 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Media.Imaging;
 
+/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
 namespace eBirdLibrary
 {
     // An interface for communicating with the Cornel University e-bird database.

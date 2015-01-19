@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.IO;
-using System.Threading.Tasks;
-using System.Windows.Media.Imaging;
 using System.Data.Services.Client;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
+
+/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
 
 namespace BirdTracker.Image_Librarian
 {
@@ -115,15 +119,21 @@ namespace BirdTracker.Image_Librarian
                         if (!String.IsNullOrEmpty(strPath))
                         {
                             // Load it into memory and save it so we can reuse it.
+                            try
+                            {
+                                BitmapImage bi = new BitmapImage();
 
-                            BitmapImage bi = new BitmapImage();
+                                bi.BeginInit();
+                                bi.UriSource = new Uri(strPath, UriKind.RelativeOrAbsolute);
+                                bi.EndInit();
 
-                            bi.BeginInit();
-                            bi.UriSource = new Uri(strPath, UriKind.RelativeOrAbsolute);
-                            bi.EndInit();
-
-                            src = bi;
-                            _LoadedThumbNails.Add(strScientificName, src);
+                                src = bi;
+                                _LoadedThumbNails.Add(strScientificName, src);
+                            }
+                            catch (Exception e)
+                            {
+                                ;
+                            }
                         }
                     }
                 }

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.IO;
 using System.Xml.Serialization;
-using System.IO;
+
+/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
 
 namespace BirdTracker.Support
 {

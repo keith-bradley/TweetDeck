@@ -23,8 +23,8 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <StackPanel Width="380" Orientation="Horizontal" Grid.Row="0">
-            <TextBlock Width="360" Text="{Binding Path=Report_Title}" TextAlignment="Left" Background="#262830" Foreground="White" FontWeight="Bold" />
-                <Button Width="20" Command="{Binding Source={StaticResource BirdVM}, Path=CLOSE_REPORT_CMD}" Content="x" Foreground="White" FontWeight="Bold" Background="Transparent"></Button>
+                <TextBlock Width="360" Text="{Binding Path=Report_Title}" TextAlignment="Left" Background="#262830" Foreground="White" FontWeight="Bold" />                
+                <Button Width="20" Command="{Binding Source={StaticResource BirdVM}, Path=CLOSE_REPORT_CMD}" Content="x" Foreground="White" FontWeight="Bold" Background="Transparent"></Button>                
             </StackPanel>
             <ListBox Width="380" Name="lbReports" Grid.Row="1" HorizontalAlignment="Center" 
             VerticalAlignment="Stretch" Background="#262830" ItemsSource="{Binding Path=ListSightings, Mode=TwoWay}" BorderThickness="0">
@@ -33,6 +33,8 @@
                         <MenuItem Header="Exclude Species" Command="{Binding Source={StaticResource BirdVM}, Path=EXCLUDE_SPECIES_CMD}"  CommandParameter="{Binding PlacementTarget, RelativeSource=
          {RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}">                            
                         </MenuItem>
+                        <MenuItem Header="Map" Command="{Binding Source={StaticResource BirdVM}, Path=PIN_LOCATION_CMD}" CommandParameter="{Binding PlacementTarget, RelativeSource=
+         {RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}" ></MenuItem>
                     </ContextMenu>                        
                 </ListBox.ContextMenu>
                 <ListBox.Resources>

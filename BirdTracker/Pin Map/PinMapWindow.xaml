@@ -1,0 +1,21 @@
+﻿<Window x:Class="BirdTracker.Pin_Map.PinMapWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        xmlns:viewModelVm="clr-namespace:BirdTracker.Pin_Map"
+        Title="PinMapWindow" Height="600" Width="600">
+    <Window.Resources>
+        <viewModelVm:PinMapWindowVM x:Key="PinMapVM" />
+    </Window.Resources>
+    <Grid Name="MainGrid" DataContext="{StaticResource PinMapVM}">
+        <Grid.RowDefinitions>            
+            <RowDefinition />            
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>            
+        </Grid.ColumnDefinitions>
+        <m:Map Name="theMap" CredentialsProvider="AlgGlvdk8YG15kLf44UFdyq18MtBB890r0NnItZb3187ryBDswn9xuq3h58Oo5vX"
+               Center="45.52,-75.43" ZoomLevel="10" VerticalContentAlignment="Stretch">                       
+        </m:Map>        
+    </Grid>
+</Window>

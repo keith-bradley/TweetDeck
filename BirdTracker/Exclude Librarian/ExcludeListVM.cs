@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.ComponentModel;
 using System.Collections.ObjectModel;
-using BirdTracker.Image_Librarian;
-using BirdTracker.Name_Librarian;
-using System.Windows.Input;
-using BirdTracker.Support;
-using BirdTracker.Interfaces;
+using System.ComponentModel;
+using System.Linq;
 using System.Windows.Controls;
+using System.Windows.Input;
+using BirdTracker.Image_Librarian;
+using BirdTracker.Interfaces;
+using BirdTracker.Name_Librarian;
+using BirdTracker.Support;
+
+/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
 
 namespace BirdTracker.Exclude_Librarian
 {

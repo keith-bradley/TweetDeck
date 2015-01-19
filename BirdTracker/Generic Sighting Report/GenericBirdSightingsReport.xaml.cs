@@ -3,6 +3,10 @@ using System.Windows.Controls;
 using BirdTracker.Interfaces;
 using System;
 
+/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
 namespace BirdTracker
 {
     /// <summary>

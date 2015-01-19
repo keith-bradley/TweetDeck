@@ -53,6 +53,7 @@
     <Compile Include="INameLibraryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IExcludeLibraryTests.cs" />
+    <Compile Include="IPinMapTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BirdTracker\BirdTracker.csproj">

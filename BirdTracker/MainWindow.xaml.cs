@@ -1,26 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using eBirdLibrary;
-using System.Threading.Tasks;
-using BirdTracker.Image_Librarian;
-using System.Threading;
-using BirdTracker.Interfaces;
-using System.Diagnostics;
 using System.Xml.Linq;
-using System.IO;
 using BirdTracker.Exclude_Librarian;
+using BirdTracker.Interfaces;
 using BirdTracker.Name_Librarian;
+
+/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
 
 // Possible features/to do for this application
 // - Map the location of the sighting (Get the directions to the location as well?)

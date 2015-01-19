@@ -5,6 +5,10 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BirdTracker.Exclude_Librarian;
 
+/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
 namespace BirdTrackerTest
 {
     [TestClass]

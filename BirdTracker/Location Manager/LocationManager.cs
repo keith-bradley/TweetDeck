@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using BirdTracker.Interfaces;
+
+/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
 
 namespace BirdTracker.Location_Manager
 {

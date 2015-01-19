@@ -1,5 +1,9 @@
 ﻿using System;
 
+/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
 namespace BirdTracker.Generic_Sighting_Report
 {
     public enum REPORT_TYPE

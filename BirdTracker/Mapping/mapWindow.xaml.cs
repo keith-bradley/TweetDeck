@@ -13,6 +13,10 @@ using System.Windows.Shapes;
 using Microsoft.Maps.MapControl.WPF;
 using BirdTracker.Interfaces;
 
+/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
 namespace BirdTracker.Mapping
 {
     /// <summary>

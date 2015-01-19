@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 using eBirdLibrary;
 using System.Collections.ObjectModel;
 
+/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
 namespace eBirdLibraryTest
 {
     /// <summary>

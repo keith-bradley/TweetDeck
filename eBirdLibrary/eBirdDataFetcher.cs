@@ -9,6 +9,10 @@ using System.IO;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 
+/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
 // Things to do:
 // 1. Sort the retured lists by common name.
 // 2. Add unit testing project to test the parameter checking for each of these public methods.

@@ -4,17 +4,21 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using BirdTracker.Exclude_Librarian;
 using BirdTracker.Image_Librarian;
 using BirdTracker.Interfaces;
 using BirdTracker.Location_Manager;
+using BirdTracker.Name_Librarian;
 using BirdTracker.Support;
 using eBirdLibrary;
-using System.Diagnostics;
-using System.Windows.Controls;
-using BirdTracker.Exclude_Librarian;
-using BirdTracker.Name_Librarian;
+using BirdTracker.Pin_Map;
+
+/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
 
 namespace BirdTracker
 {
@@ -100,7 +104,17 @@ namespace BirdTracker
             get { return _excludeSpeciesCMD; }
             set { _excludeSpeciesCMD = value; }
         }
-                
+
+        /// <summary>
+        /// Show the location where this species was spoted on a map.
+        /// </summary>
+        private ICommand _pinLocationCMD;
+        public ICommand PIN_LOCATION_CMD
+        {
+            get { return _pinLocationCMD; }
+            set { _pinLocationCMD = value; }
+        }
+        
         /// <summary>
         /// Reference to the windows manager (MainWindow.xaml).
         /// </summary>
@@ -146,6 +160,7 @@ namespace BirdTracker
             GET_LOCATIONREPORT_CMD = new RelayCommand(new Action<object>(mapLocation));
             GET_SPECIES_REPORT_CMD = new RelayCommand(new Action<object>(speciesLocation));
             EXCLUDE_SPECIES_CMD    = new RelayCommand(new Action<object>(exclude_species));
+            PIN_LOCATION_CMD       = new RelayCommand(new Action<object>(pin_location_on_map));
         }
 
         /// <summary>
@@ -156,6 +171,30 @@ namespace BirdTracker
             if (WindowManager != null)
                 { WindowManager.closeReport(_View); }
         }
+
+        private void pin_location_on_map(object o)
+        {
+            var lb = o as ListBox;
+            var si = lb.SelectedItems;
+            if (si != null)
+            {
+                var item = si[0] as BirdSighting;
+
+                PinMapWindow window = new PinMapWindow();
+                double lat;
+                double.TryParse(item._latitude, out lat);
+
+                double lng;
+                double.TryParse(item._longitude, out lng);
+
+                var col = new List<LatLongPair>();
+                col.Add(new LatLongPair(latitude: lat, longitude: lng));
+                window.initialize(col);
+                window.ShowDialog();
+            }
+        
+        }
+
 
         /// <summary>
         /// Exclude the specified species
