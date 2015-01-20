@@ -63,6 +63,29 @@ namespace BirdTracker.Pin_Map
             int i = 12;
         }
 
+        /// <summary>
+        /// Event handler for when the window is loaded.
+        /// Here we want to restore previously saved settings like window width & height.
+        /// </summary>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Width  = Properties.Settings.Default.PIN_MAP_WIDTH;
+            Height = Properties.Settings.Default.PIN_MAP_HEIGHT;
+            Top    = Properties.Settings.Default.PIN_MAP_TOP;
+            Left   = Properties.Settings.Default.PIN_MAP_LEFT;
+        }
 
+        /// <summary>
+        /// Event handler for when the window is closed.
+        /// Here we want to save the properties of the window like window width & height.
+        /// </summary>
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.PIN_MAP_WIDTH  = Width;
+            Properties.Settings.Default.PIN_MAP_HEIGHT = Height;
+            Properties.Settings.Default.PIN_MAP_TOP    = Top;
+            Properties.Settings.Default.PIN_MAP_LEFT   = Left;            
+            Properties.Settings.Default.Save();
+        }
     }
 }
