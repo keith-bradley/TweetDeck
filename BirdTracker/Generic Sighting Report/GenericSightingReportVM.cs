@@ -114,6 +114,16 @@ namespace BirdTracker
             get { return _pinLocationCMD; }
             set { _pinLocationCMD = value; }
         }
+
+        /// <summary>
+        /// Take all of the sightings in the column and pin them on a map.
+        /// </summary>
+        private ICommand _pin_all_locations_CMD;
+        public ICommand PIN_ALL_LOCATIONS_CMD
+        {
+            get { return _pin_all_locations_CMD; }
+            set { _pin_all_locations_CMD = value; }
+        }
         
         /// <summary>
         /// Reference to the windows manager (MainWindow.xaml).
@@ -161,6 +171,7 @@ namespace BirdTracker
             GET_SPECIES_REPORT_CMD = new RelayCommand(new Action<object>(speciesLocation));
             EXCLUDE_SPECIES_CMD    = new RelayCommand(new Action<object>(exclude_species));
             PIN_LOCATION_CMD       = new RelayCommand(new Action<object>(pin_location_on_map));
+            PIN_ALL_LOCATIONS_CMD  = new RelayCommand(new Action<object>(pin_all_locations_on_map));
         }
 
         /// <summary>
@@ -172,6 +183,10 @@ namespace BirdTracker
                 { WindowManager.closeReport(_View); }
         }
 
+        /// <summary>
+        /// Pin a single location on a map
+        /// </summary>
+        /// <param name="o">The listbox control.</param>
         private void pin_location_on_map(object o)
         {
             var lb = o as ListBox;
@@ -187,14 +202,42 @@ namespace BirdTracker
                 double lng;
                 double.TryParse(item._longitude, out lng);
 
-                var col = new List<LatLongPair>();
-                col.Add(new LatLongPair(latitude: lat, longitude: lng));
+                var col = new List<BirdPinData>();
+                col.Add(new BirdPinData(latitude: lat, longitude: lng, common_name: item._common_name, scientific_name: item._scientific_name));
                 window.initialize(col);
                 window.ShowDialog();
-            }
-        
+            }        
         }
 
+        /// <summary>
+        /// Pin all of the bird sightings on a map.
+        /// </summary>
+        /// <param name="o">The listbox control.</param>
+        private void pin_all_locations_on_map(object o)
+        {
+            var lb = o as ListBox;
+            var items = lb.Items;
+            if ((items != null) & (items.Count > 0))
+            {
+                var collection = new List<BirdPinData>();
+                foreach (var item in items)
+                {
+                    var bird_sighting = item as BirdSighting;
+                    double lat;
+                    double.TryParse(bird_sighting._latitude, out lat);
+
+                    double lng;
+                    double.TryParse(bird_sighting._longitude, out lng);
+                
+                    collection.Add(new BirdPinData(latitude: lat, longitude: lng, common_name: bird_sighting._common_name,
+                                                    scientific_name: bird_sighting._scientific_name));
+                }
+
+                PinMapWindow window = new PinMapWindow();
+                window.initialize(collection);
+                window.ShowDialog();            
+            }
+        }
 
         /// <summary>
         /// Exclude the specified species

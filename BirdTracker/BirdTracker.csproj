@@ -84,8 +84,13 @@
     <Compile Include="Mapping\mapWindowVM.cs" />
     <Compile Include="Name Librarian\INameLibrary.cs" />
     <Compile Include="Name Librarian\NameLibrarian.cs" />
+    <Compile Include="Pin Map\BirdPinData.cs" />
+    <Compile Include="Pin Map\BirdToolTipWindow.xaml.cs">
+      <DependentUpon>BirdToolTipWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pin Map\IPinMap.cs" />
     <Compile Include="Pin Map\LatLongPair.cs" />
+    <Compile Include="Pin Map\PinData.cs" />
     <Compile Include="Pin Map\PinMap.cs" />
     <Compile Include="Pin Map\PinMapWindow.xaml.cs">
       <DependentUpon>PinMapWindow.xaml</DependentUpon>
@@ -118,6 +123,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Mapping\mapWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pin Map\BirdToolTipWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

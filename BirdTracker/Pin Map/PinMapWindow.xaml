@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         xmlns:viewModelVm="clr-namespace:BirdTracker.Pin_Map"
-        Title="PinMapWindow" Height="600" Width="600" Loaded="Window_Loaded" Closed="Window_Closed">
+        Title="Bird Locations" Height="600" Width="600" Loaded="Window_Loaded" Closed="Window_Closed">
     <Window.Resources>
         <viewModelVm:PinMapWindowVM x:Key="PinMapVM" />
     </Window.Resources>

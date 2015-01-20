@@ -31,10 +31,14 @@
                 <ListBox.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="Exclude Species" Command="{Binding Source={StaticResource BirdVM}, Path=EXCLUDE_SPECIES_CMD}"  CommandParameter="{Binding PlacementTarget, RelativeSource=
-         {RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}">                            
+                            {RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}">                            
                         </MenuItem>
                         <MenuItem Header="Map" Command="{Binding Source={StaticResource BirdVM}, Path=PIN_LOCATION_CMD}" CommandParameter="{Binding PlacementTarget, RelativeSource=
-         {RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}" ></MenuItem>
+                            {RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}">                            
+                        </MenuItem>
+                        <MenuItem Header="Map all" Command="{Binding Source={StaticResource BirdVM}, Path=PIN_ALL_LOCATIONS_CMD}" CommandParameter="{Binding PlacementTarget, RelativeSource=
+                            {RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}">                            
+                        </MenuItem>
                     </ContextMenu>                        
                 </ListBox.ContextMenu>
                 <ListBox.Resources>

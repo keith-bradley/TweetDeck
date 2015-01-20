@@ -19,6 +19,9 @@ namespace BirdTracker.Pin_Map
     /// </summary>
     public partial class PinMapWindow : Window
     {
+        private BirdToolTipWindow _tool_tip_window = null;
+
+
         /// <summary>
         /// CTOR
         /// </summary>
@@ -31,37 +34,38 @@ namespace BirdTracker.Pin_Map
         /// 
         /// </summary>
         /// <param name="collection_of_locations_to_be_pinned"></param>
-        public void initialize(IEnumerable<LatLongPair> collection_of_locations_to_be_pinned)
+        public void initialize(IEnumerable<PinData> collection_of_locations_to_be_pinned)
         {
             if (collection_of_locations_to_be_pinned == null)
             {
                 throw new ArgumentNullException("collection of locations cannot be null.", "initialize");
             }
 
-
             if (MainGrid.DataContext != null)
             {
-                foreach (var pin_location in collection_of_locations_to_be_pinned)
+                foreach (var pin_data in collection_of_locations_to_be_pinned)
                 {
                     var pin = new Pushpin();
-                    pin.Location = new Location(latitude: pin_location.Latitude, longitude: pin_location.Longitude);
-                    pin.ToolTip = "Hello world";
-                    pin.ToolTipOpening += new ToolTipEventHandler(pin_ToolTipOpening);
-                    pin.ToolTipClosing += new ToolTipEventHandler(pin_ToolTipClosing);
+                    pin.Location = new Location(latitude: pin_data.Latitude, longitude: pin_data.Longitude);
+                    pin.ToolTip = pin_data.TOOL_TIP_TITLE;
+                    //pin.ToolTipOpening += new ToolTipEventHandler(pin_ToolTipOpening2);
+                    //pin.ToolTipClosing += new ToolTipEventHandler(pin_ToolTipClosing2);
+                    
                     theMap.Children.Add(pin);
                 }
             }            
         }
 
-        void pin_ToolTipClosing(object sender, ToolTipEventArgs e)
-        {
-            int i = 13;
-        }
+        //void pin_ToolTipClosing2(object sender, ToolTipEventArgs e)
+        //{
+        //    _tool_tip_window.Close();
+        //}
 
-        void pin_ToolTipOpening(object sender, ToolTipEventArgs e)
-        {
-            int i = 12;
-        }
+        //void pin_ToolTipOpening2(object sender, ToolTipEventArgs e)
+        //{
+        //    _tool_tip_window = new BirdToolTipWindow();
+        //    _tool_tip_window.Show();
+        //}
 
         /// <summary>
         /// Event handler for when the window is loaded.
