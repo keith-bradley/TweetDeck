@@ -1,13 +1,13 @@
-﻿using System;
+﻿/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 using BirdTracker.Interfaces;
 using BirdTracker.Support;
-
-/// Author: Keith Bradley
-///         Ottawa, Ontario, Canada
-///         Copyright 2015
 
 namespace BirdTracker.Mapping
 {

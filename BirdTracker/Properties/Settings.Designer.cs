@@ -154,5 +154,53 @@ namespace BirdTracker.Properties {
                 this["PIN_MAP_LEFT"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double MAP_WINDOW_TOP {
+            get {
+                return ((double)(this["MAP_WINDOW_TOP"]));
+            }
+            set {
+                this["MAP_WINDOW_TOP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double MAP_WINDOW_LEFT {
+            get {
+                return ((double)(this["MAP_WINDOW_LEFT"]));
+            }
+            set {
+                this["MAP_WINDOW_LEFT"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("350")]
+        public double MAP_WINDOW_HEIGHT {
+            get {
+                return ((double)(this["MAP_WINDOW_HEIGHT"]));
+            }
+            set {
+                this["MAP_WINDOW_HEIGHT"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("400")]
+        public double MAP_WINDOW_WIDTH {
+            get {
+                return ((double)(this["MAP_WINDOW_WIDTH"]));
+            }
+            set {
+                this["MAP_WINDOW_WIDTH"] = value;
+            }
+        }
     }
 }

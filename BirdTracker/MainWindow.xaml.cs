@@ -248,7 +248,11 @@ namespace BirdTracker
 
             exclude_library.load_library();
             name_library.load_library();
-            load_existing_reports();            
+            load_existing_reports();
+
+            // Launch the map dialog
+            var map = new Mapping.mapWindow(vm.WindowManager);
+            map.Show();
         }
 
         /// <summary>

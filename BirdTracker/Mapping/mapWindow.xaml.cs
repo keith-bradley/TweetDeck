@@ -66,6 +66,9 @@ namespace BirdTracker.Mapping
                }
         }
 
+        /// <summary>
+        /// Event handler for when the map window has been loaded.
+        /// </summary>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             mapWindowVM vm = MainGrid.DataContext as mapWindowVM;
@@ -73,6 +76,23 @@ namespace BirdTracker.Mapping
             {
                 vm.WindowManager = WindowManager;
             }
+
+            Top    = Properties.Settings.Default.MAP_WINDOW_TOP;
+            Left   = Properties.Settings.Default.MAP_WINDOW_LEFT;
+            Height = Properties.Settings.Default.MAP_WINDOW_HEIGHT;
+            Width  = Properties.Settings.Default.MAP_WINDOW_WIDTH;
+        }
+
+        /// <summary>
+        /// Event handler for when the map window has been closed.
+        /// </summary>
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.MAP_WINDOW_TOP    = Top;
+            Properties.Settings.Default.MAP_WINDOW_LEFT   = Left;
+            Properties.Settings.Default.MAP_WINDOW_HEIGHT = Height;
+            Properties.Settings.Default.MAP_WINDOW_WIDTH  = Width;
+            Properties.Settings.Default.Save();
         }
     }
 }

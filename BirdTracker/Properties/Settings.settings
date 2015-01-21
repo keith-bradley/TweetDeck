@@ -35,5 +35,17 @@
     <Setting Name="PIN_MAP_LEFT" Type="System.Double" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="MAP_WINDOW_TOP" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="MAP_WINDOW_LEFT" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="MAP_WINDOW_HEIGHT" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">350</Value>
+    </Setting>
+    <Setting Name="MAP_WINDOW_WIDTH" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">400</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

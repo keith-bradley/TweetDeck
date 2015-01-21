@@ -117,8 +117,6 @@ namespace BirdTracker
             WindowManager.view_excludes();
         }
 
-
-
         /// <summary>
         /// Launch a map window
         /// </summary>        

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
          xmlns:viewModelVm="clr-namespace:BirdTracker.Mapping"
-        Title="Select a location" Height="444" Width="659" Loaded="Window_Loaded">
+        Title="Select a location" Height="444" Width="659" Loaded="Window_Loaded" Closed="Window_Closed">
     <Window.Resources>
         <viewModelVm:mapWindowVM x:Key="MapWindowVM"/>
     </Window.Resources>
