@@ -18,10 +18,7 @@ namespace BirdTracker.Pin_Map
     /// Interaction logic for PinMapWindow.xaml
     /// </summary>
     public partial class PinMapWindow : Window
-    {
-        private BirdToolTipWindow _tool_tip_window = null;
-
-
+    {        
         /// <summary>
         /// CTOR
         /// </summary>
@@ -31,9 +28,10 @@ namespace BirdTracker.Pin_Map
         }
 
         /// <summary>
-        /// 
+        /// Call initialize to pass the list of pin locations to the window.
         /// </summary>
-        /// <param name="collection_of_locations_to_be_pinned"></param>
+        /// <param name="collection_of_locations_to_be_pinned">The list of locations to be pinned.</param>
+        /// <exception cref="ArgumentNullException">Thrown if collection_of_locations_to_be_pinned is null.</exception>
         public void initialize(IEnumerable<BirdPinData> collection_of_locations_to_be_pinned)
         {
             if (collection_of_locations_to_be_pinned == null)
@@ -47,25 +45,11 @@ namespace BirdTracker.Pin_Map
                 {
                     var pin = new Pushpin();
                     pin.Location = new Location(latitude: pin_data.Latitude, longitude: pin_data.Longitude);
-                    pin.ToolTip = String.Format("{0} ({1})",pin_data.TOOL_TIP_TITLE, pin_data.DATE_REPORTED);
-                    //pin.ToolTipOpening += new ToolTipEventHandler(pin_ToolTipOpening2);
-                    //pin.ToolTipClosing += new ToolTipEventHandler(pin_ToolTipClosing2);
-                    
+                    pin.ToolTip = String.Format("{0} ({1})",pin_data.TOOL_TIP_TITLE, pin_data.DATE_REPORTED);                    
                     theMap.Children.Add(pin);
                 }
             }            
         }
-
-        //void pin_ToolTipClosing2(object sender, ToolTipEventArgs e)
-        //{
-        //    _tool_tip_window.Close();
-        //}
-
-        //void pin_ToolTipOpening2(object sender, ToolTipEventArgs e)
-        //{
-        //    _tool_tip_window = new BirdToolTipWindow();
-        //    _tool_tip_window.Show();
-        //}
 
         /// <summary>
         /// Event handler for when the window is loaded.
