@@ -8,21 +8,21 @@
         <viewModelVm:mapWindowVM x:Key="MapWindowVM"/>
     </Window.Resources>
     <Grid Name="MainGrid" DataContext="{Binding Source={StaticResource MapWindowVM}}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
+        <Grid.RowDefinitions>  
+            <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="150" />
         </Grid.ColumnDefinitions>        
-        <TextBlock Name="CurrentPosition" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"></TextBlock>
-        <m:Map Name="theMap" CredentialsProvider="AlgGlvdk8YG15kLf44UFdyq18MtBB890r0NnItZb3187ryBDswn9xuq3h58Oo5vX" Center="45.52,-75.43" ZoomLevel="8" VerticalAlignment="Bottom" VerticalContentAlignment="Stretch" Height="396" Margin="0,0,0,-11" Grid.Row="1" >
+        <TextBlock Name="CurrentPosition" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="20" ></TextBlock>
+        <m:Map Name="theMap" Grid.Row="1" CredentialsProvider="AlgGlvdk8YG15kLf44UFdyq18MtBB890r0NnItZb3187ryBDswn9xuq3h58Oo5vX" Center="45.52,-75.43" ZoomLevel="8"  Height="Auto" >
             <m:Pushpin Location="45.42,-75.70"/>
         </m:Map>
-        <StackPanel Grid.Row="1"  Grid.Column="1" Margin="0,0,-14,-11">
-            <ComboBox Name="ReportType" ItemsSource="{Binding Source={StaticResource MapWindowVM}, Path=REPORT_STRINGS}" SelectedValue="{Binding Source={StaticResource MapWindowVM}, Path=REPORT_STRINGS}" SelectedIndex="0" />            
-            <Button Content="Create Report" Height="23" Name="TrackBtn" Width="Auto" Margin="10,40,10,10" Command="{Binding Path=GENERATE_REPORT_CMD}" CommandParameter="{Binding Path=REPORT_STRINGS/}" />
+        <StackPanel Grid.Row="1"  Grid.Column="1" >
+            <ComboBox Name="ReportType" ItemsSource="{Binding Source={StaticResource MapWindowVM}, Path=REPORT_STRINGS}" SelectedValue="{Binding Source={StaticResource MapWindowVM}, Path=REPORT_STRINGS}" SelectedIndex="0" Height="24" />            
+            <Button Content="Create Report" Height="23" Name="TrackBtn" Width="Auto" Command="{Binding Path=GENERATE_REPORT_CMD}" CommandParameter="{Binding Path=REPORT_STRINGS/}" />
         </StackPanel>
     </Grid>
 </Window>
