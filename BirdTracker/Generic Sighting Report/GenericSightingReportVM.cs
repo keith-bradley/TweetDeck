@@ -203,7 +203,9 @@ namespace BirdTracker
                 double.TryParse(item._longitude, out lng);
 
                 var col = new List<BirdPinData>();
-                col.Add(new BirdPinData(latitude: lat, longitude: lng, common_name: item._common_name, scientific_name: item._scientific_name));
+                var data = new BirdPinData(latitude: lat, longitude: lng, common_name: item._common_name, scientific_name: item._scientific_name);
+                data.DATE_REPORTED = item._observation_date;
+                col.Add(data);
                 window.initialize(col);
                 window.ShowDialog();
             }        
@@ -228,9 +230,12 @@ namespace BirdTracker
 
                     double lng;
                     double.TryParse(bird_sighting._longitude, out lng);
-                
-                    collection.Add(new BirdPinData(latitude: lat, longitude: lng, common_name: bird_sighting._common_name,
-                                                    scientific_name: bird_sighting._scientific_name));
+
+                    var data = new BirdPinData(latitude: lat, longitude: lng, common_name: bird_sighting._common_name,
+                                                    scientific_name: bird_sighting._scientific_name);
+
+                    data.DATE_REPORTED = bird_sighting._observation_date;
+                    collection.Add(data);
                 }
 
                 PinMapWindow window = new PinMapWindow();

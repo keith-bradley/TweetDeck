@@ -34,7 +34,7 @@ namespace BirdTracker.Pin_Map
         /// 
         /// </summary>
         /// <param name="collection_of_locations_to_be_pinned"></param>
-        public void initialize(IEnumerable<PinData> collection_of_locations_to_be_pinned)
+        public void initialize(IEnumerable<BirdPinData> collection_of_locations_to_be_pinned)
         {
             if (collection_of_locations_to_be_pinned == null)
             {
@@ -47,7 +47,7 @@ namespace BirdTracker.Pin_Map
                 {
                     var pin = new Pushpin();
                     pin.Location = new Location(latitude: pin_data.Latitude, longitude: pin_data.Longitude);
-                    pin.ToolTip = pin_data.TOOL_TIP_TITLE;
+                    pin.ToolTip = String.Format("{0} ({1})",pin_data.TOOL_TIP_TITLE, pin_data.DATE_REPORTED);
                     //pin.ToolTipOpening += new ToolTipEventHandler(pin_ToolTipOpening2);
                     //pin.ToolTipClosing += new ToolTipEventHandler(pin_ToolTipClosing2);
                     

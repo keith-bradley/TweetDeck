@@ -14,11 +14,24 @@ namespace BirdTracker.Pin_Map
     /// </summary>
     public class BirdPinData : PinData
     {
+        /// <summary>
+        /// The scientific name of the bird.
+        /// </summary>
         private string _scientific_name;
         public string SCIENTIFIC_NAME
         {
             get { return _scientific_name; }
             set { _scientific_name = value; }
+        }
+
+        /// <summary>
+        /// The date the bird was found.
+        /// </summary>
+        private string _date_reported;
+        public string DATE_REPORTED
+        {
+            get { return _date_reported; }
+            set { _date_reported = value; }
         }
         
         /// <summary>
