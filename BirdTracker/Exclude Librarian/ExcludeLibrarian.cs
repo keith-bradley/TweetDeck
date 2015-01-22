@@ -1,13 +1,14 @@
-﻿using System;
+﻿/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015 
+
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
-using System.IO;
-
-/// Author: Keith Bradley
-///         Ottawa, Ontario, Canada
-///         Copyright 2015 
+using BirdTracker.Support;
 
 namespace BirdTracker.Exclude_Librarian
 {
@@ -141,7 +142,7 @@ namespace BirdTracker.Exclude_Librarian
             var saved_library = Properties.Settings.Default.EXCLUDE_LIST;
             if (!String.IsNullOrEmpty(saved_library))
             {
-                 var xdoc = load_xml_from_string(saved_library);
+                 var xdoc = Utilities.load_xml_from_string(saved_library);
                  if (xdoc != null)
                  {
                      var lstExcludedBirds = xdoc.Root.Element("excludes").Elements("exclude").Select(element => element.Value);
@@ -160,23 +161,6 @@ namespace BirdTracker.Exclude_Librarian
         public IEnumerable<string> get_all_excluded_birds()
         {           
             return _library.Keys;
-        }
-
-        /// <summary>
-        /// Loads an xml string into a XDocument object so that you can use LINQ to XML.
-        /// </summary>
-        /// <param name="strXML">The xml string</param>
-        /// <returns>null or the XDocument object</returns>
-        /// <exception cref="ArgumentException">Thrown when strXML is null or blank</exception>
-        private static XDocument load_xml_from_string(String strXML)
-        {
-            if (String.IsNullOrEmpty(strXML))
-            {
-                throw new ArgumentException("XML string cannot be null or blank", "load_xml_from_string");
-            }
-            
-            XDocument xdoc1 = XDocument.Load(new StringReader(strXML));            
-            return (xdoc1);
         }
     }
 }
