@@ -13,14 +13,7 @@
             <RowDefinition Height="*"/>    
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <ToolBar Grid.Row="0">
-            <TextBlock Height="Auto" Text="Report:" TextAlignment="Center" VerticalAlignment="Center"/>
-            <ComboBox Height="Auto"  Width="100" VerticalAlignment="Center" Name="Report" ItemsSource="{Binding Source={StaticResource MainWindowVM}, Path=REPORT_TYPES}" SelectedValue="{Binding Source={StaticResource MainWindowVM}, Path=SELECTED_REPORT}" />
-            <TextBlock Height="Auto" VerticalAlignment="Center" Text="Lattitude:" />
-            <TextBox Height="Auto" VerticalAlignment="Center" Width="100" Name="Lattitude" Text="{Binding Source={StaticResource MainWindowVM}, Path=LATTITUDE}" />
-            <TextBlock Height="Auto" VerticalAlignment="Center" Text="Longitude:"  />
-            <TextBox Height="Auto" VerticalAlignment="Center" Width="100"  Name="Longitude" Text="{Binding Source={StaticResource MainWindowVM}, Path=LONGITUDE}"/>
-            <Button Height="Auto" VerticalAlignment="Center" Width="40" Command="{Binding Source={StaticResource MainWindowVM}, Path=GENERATE_REPORT_CMD}">Go</Button>
+        <ToolBar Grid.Row="0">                                                                        
             <Button Height="Auto" VerticalAlignment="Center" Width="40" Command="{Binding Source={StaticResource MainWindowVM}, Path=LAUNCH_MAP_CMD}" >Map</Button>
             <Button Height="Auto" VerticalAlignment="Center" Width="60" Command="{Binding Source={StaticResource MainWindowVM}, Path=VIEW_EXCLUDES_CMD}">Excludes</Button>
         </ToolBar>

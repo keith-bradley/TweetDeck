@@ -1,4 +1,8 @@
-﻿using System;
+﻿/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -10,10 +14,6 @@ using System.Xml.Linq;
 using BirdTracker.Exclude_Librarian;
 using BirdTracker.Interfaces;
 using BirdTracker.Name_Librarian;
-
-/// Author: Keith Bradley
-///         Ottawa, Ontario, Canada
-///         Copyright 2015
 
 // Possible features/to do for this application
 // - Map the location of the sighting (Get the directions to the location as well?)
@@ -38,7 +38,7 @@ namespace BirdTracker
     public partial class MainWindow : Window, IWindowManager
     {
         private IExcudeLibary exclude_library = ExcludeLibrarian.get_instance();
-        private INameLibrary name_library = NameLibrarian.get_instance();  
+        private INameLibrary  name_library    = NameLibrarian.get_instance();  
      
         /// <summary>
         /// CTOR
