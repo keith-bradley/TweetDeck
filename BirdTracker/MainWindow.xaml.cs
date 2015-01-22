@@ -14,6 +14,7 @@ using System.Xml.Linq;
 using BirdTracker.Exclude_Librarian;
 using BirdTracker.Interfaces;
 using BirdTracker.Name_Librarian;
+using BirdTracker.Support;
 
 // Possible features/to do for this application
 // - Map the location of the sighting (Get the directions to the location as well?)
@@ -125,7 +126,7 @@ namespace BirdTracker
             {
                 try
                 {
-                    var xdoc = load_xml_from_string(saved_state);
+                    var xdoc = Utilities.load_xml_from_string(saved_state);
                     if (xdoc != null)
                     {
                         List<column_report_requests> lstColumns = (from _rep in xdoc.Element("main_window_state").Elements("columns").Elements("column")
@@ -167,23 +168,6 @@ namespace BirdTracker
 
             public string _column_position       { get; set; }
             public ReportRequest _report_request { get; set; }
-        }
-
-        /// <summary>
-        /// Load an xml string into a XDocument object (used in LINQ).
-        /// </summary>
-        /// <param name="strXML">The complete raw xml as a string.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentException">Thrown when the strXML parameter is null or empty.</exception>
-        private static XDocument load_xml_from_string(String strXML)
-        {
-            if (string.IsNullOrEmpty(strXML))
-            {
-                throw new ArgumentException("The passed in xml is blank or empty.", "load_xml_from_string");
-            }
-
-            XDocument xdoc1 = XDocument.Load(new StringReader(strXML)); 
-            return (xdoc1);
         }
 
         /// <summary>
