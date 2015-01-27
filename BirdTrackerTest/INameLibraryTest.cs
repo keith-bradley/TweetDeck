@@ -14,7 +14,7 @@ namespace BirdTrackerTest
     [TestClass]
     public class INameLibraryTest
     {
-        private INameLibrary librarian = NameLibrarian.get_instance();
+        private INameLibrary librarian = NameLibrarian.NAME_LIBRARIAN;
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]

@@ -35,8 +35,8 @@ namespace BirdTracker
     /// </summary>
     public partial class MainWindow : Window, IWindowManager
     {
-        private IExcudeLibary exclude_library = ExcludeLibrarian.get_instance();
-        private INameLibrary  name_library    = NameLibrarian.get_instance();  
+        private IExcudeLibary exclude_library = ExcludeLibrarian.EXCLUDE_LIBRARIAN;
+        private INameLibrary name_library     = NameLibrarian.NAME_LIBRARIAN;  
      
         /// <summary>
         /// CTOR

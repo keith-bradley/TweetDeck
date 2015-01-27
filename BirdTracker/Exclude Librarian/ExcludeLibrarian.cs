@@ -30,10 +30,19 @@ namespace BirdTracker.Exclude_Librarian
         /// Gets the singelton librarian.
         /// </summary>
         /// <returns></returns>
-        public static ExcludeLibrarian get_instance()
+        //public static ExcludeLibrarian get_instance()
+        //{
+        //    return (_librarian);
+        //}
+
+        
+
+        public static ExcludeLibrarian EXCLUDE_LIBRARIAN
         {
-            return (_librarian);
+            get { return _librarian; }            
         }
+        
+
 
         /// <summary>
         /// Add an item to the library.

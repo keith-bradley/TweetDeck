@@ -14,7 +14,7 @@ namespace BirdTrackerTest
     [TestClass]
     public class IExcludeLibraryTests
     {
-        IExcudeLibary librarian = ExcludeLibrarian.get_instance();
+        IExcudeLibary librarian = ExcludeLibrarian.EXCLUDE_LIBRARIAN;
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
@@ -35,7 +35,7 @@ namespace BirdTrackerTest
         {
             var bItemAdded = librarian.add_item_to_library("bulbos vixa");
             Assert.IsTrue(bItemAdded);
-            ExcludeLibrarian.get_instance().empty_library();
+            ExcludeLibrarian.EXCLUDE_LIBRARIAN.empty_library();
         }
 
         [TestMethod]

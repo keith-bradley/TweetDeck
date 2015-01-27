@@ -21,8 +21,8 @@ namespace BirdTracker.Exclude_Librarian
     /// </summary>
     public class ExcludeListVM : INotifyPropertyChanged
     {
-        private INameLibrary  named_library   = NameLibrarian.get_instance();
-        private IExcudeLibary exclude_library = ExcludeLibrarian.get_instance();
+        private INameLibrary named_library    = NameLibrarian.NAME_LIBRARIAN;
+        private IExcudeLibary exclude_library = ExcludeLibrarian.EXCLUDE_LIBRARIAN;
 
         private ObservableCollection<ExcludeListItem> _exclude_list;
         public ObservableCollection<ExcludeListItem> EXCLUDE_LIST
@@ -150,7 +150,7 @@ namespace BirdTracker.Exclude_Librarian
             if (lstExclusions == null)
                 { throw new ArgumentNullException("The list of exclusions cannot be null.", "initialize"); }
 
-            ImageLibrarian librarian = ImageLibrarian.getInstance();
+            ImageLibrarian librarian = ImageLibrarian.IMAGE_LIBRARIAN;
             ObservableCollection<ExcludeListItem> lstExcludeItems = new ObservableCollection<ExcludeListItem>();
             foreach (var item in lstExclusions)
             {

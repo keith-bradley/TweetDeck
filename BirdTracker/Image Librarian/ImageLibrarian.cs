@@ -24,9 +24,7 @@ namespace BirdTracker.Image_Librarian
     /// which is then stored in the local cache.
     /// </summary>
     public sealed class ImageLibrarian
-    {
-        private static ImageLibrarian _instance = new ImageLibrarian();
-
+    {       
         /// <summary>
         /// A dictionary of saved thumbnails of birds so we don't keep fetching the same images over and over again.
         /// </summary>        
@@ -45,11 +43,12 @@ namespace BirdTracker.Image_Librarian
         /// <summary>
         /// Returns a reference to the librarian.
         /// </summary>        
-        public static ImageLibrarian getInstance()
-        {           
-            return (_instance);
+        private static ImageLibrarian _instance = new ImageLibrarian();
+        public static ImageLibrarian IMAGE_LIBRARIAN
+        {
+            get { return _instance; }            
         }
-
+        
         /// <summary>
         /// Load the existing saved thumbnails.
         /// </summary>

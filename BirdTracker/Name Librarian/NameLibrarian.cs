@@ -15,19 +15,18 @@ namespace BirdTracker.Name_Librarian
     /// </summary>
     public class NameLibrarian : INameLibrary
     {
-        private static NameLibrarian _librarian = new NameLibrarian();
-
         /// <summary>
         /// We have two dictionaries to allow for a fast bi-directional lookup.
         /// </summary>
         private Dictionary<string, string> common_to_scientific_dictionary = new Dictionary<string, string>();
         private Dictionary<string, string> scientific_to_common_dictionary = new Dictionary<string, string>();
 
-        static public NameLibrarian get_instance()
+        private static NameLibrarian _librarian = new NameLibrarian();       
+        public static NameLibrarian NAME_LIBRARIAN
         {
-            return (_librarian);
+            get { return _librarian; }            
         }
-    
+        
         /// <summary>
         /// CTOR is private at this is a singleton
         /// </summary>

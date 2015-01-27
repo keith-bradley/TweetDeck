@@ -28,8 +28,8 @@ namespace BirdTracker
     public class GenericSightingReportVM : INotifyPropertyChanged
     {
         private ILocationManager location_manager = LocationManager.getInstance();
-        private INameLibrary     named_library    = NameLibrarian.get_instance();
-        private IExcudeLibary    exclude_library  = ExcludeLibrarian.get_instance();
+        private INameLibrary     named_library    = NameLibrarian.NAME_LIBRARIAN;
+        private IExcudeLibary    exclude_library  = ExcludeLibrarian.EXCLUDE_LIBRARIAN;
 
         private ReportRequest ReportRequest;
 
@@ -388,7 +388,7 @@ namespace BirdTracker
                     {
                         System.Diagnostics.Trace.WriteLine(String.Format("Missing {0} images", lstMissingImages.Count()));
 
-                        ImageLibrarian librarian = ImageLibrarian.getInstance();
+                        ImageLibrarian librarian = ImageLibrarian.IMAGE_LIBRARIAN;
                         foreach (BirdSighting bs in lstMissingImages)
                         {
                             var localBS = bs;
@@ -490,7 +490,7 @@ namespace BirdTracker
             {
                 System.Diagnostics.Trace.WriteLine("Fetching Images");
 
-                ImageLibrarian librarian = ImageLibrarian.getInstance();
+                ImageLibrarian librarian = ImageLibrarian.IMAGE_LIBRARIAN;
 
                 foreach (var sighting in lstSightings)
                 {
