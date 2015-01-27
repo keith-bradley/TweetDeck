@@ -38,22 +38,6 @@ namespace BirdTracker.Pin_Map
         }
 
         /// <summary>
-        /// Tell the map to display at the provided latitude & longitude.
-        /// </summary>
-        /// <param name="latitude"></param>
-        /// <param name="longitude"></param>
-        /// <returns>True on success, false on failure.</returns>
-        /// <exception cref="ArgumentException">If the lat & long is an invalid coordinate.</exception>
-        public void set_map_location(double latitude, double longitude)
-        {
-            if (((latitude < -90.00) || (latitude > 90.00)) ||
-                 (longitude < -180.00) || (longitude > 180.00))
-                { throw new ArgumentException("Invalid Lat & Long", "set_map_location"); }
-
-            CURRENT_MAP_LOCATION = new LatLongPair(latitude: latitude, longitude: longitude);            
-        }
-
-        /// <summary>
         /// Tell the map to display at the provided coordinates.
         /// </summary>
         /// <param name="pair"></param>
@@ -65,24 +49,6 @@ namespace BirdTracker.Pin_Map
                 { throw new ArgumentNullException("Pair cannot be null.", "set_map_location"); }
 
             CURRENT_MAP_LOCATION = pair;            
-        }
-
-        /// <summary>
-        /// Tell the map to add a pin at the provided latitude & longitude.
-        /// </summary>
-        /// <param name="latitude"></param>
-        /// <param name="longitude"></param>
-        /// <returns>True on success, false on failure.</returns>
-        /// <exception cref="ArgumentException">Thrown if the lat & long is an invalid coordinate</exception>
-        public bool add_pin_to_map(double latitude, double longitude)
-        {
-            if (((latitude < -90.00) || (latitude > 90.00)) ||
-                 (longitude < -180.00) || (longitude > 180.00))
-                { throw new ArgumentException("Invalid Lat & Long", "set_map_location"); }
-
-            var pair = new LatLongPair(latitude: latitude, longitude: longitude);
-            _lst_of_pins.Add(pair);
-            return (true);
         }
 
         /// <summary>
@@ -112,22 +78,6 @@ namespace BirdTracker.Pin_Map
                 { throw new ArgumentNullException("colCoordinates cannot be null", "add_pins_to_map"); }
 
             if (colCoordinates != null) { _lst_of_pins.AddRange(colCoordinates); }
-            return (true);
-        }
-
-        /// <summary>
-        /// Tell the map to remove a pin from the provided latitude & longitude.
-        /// </summary>
-        /// <param name="latitude"></param>
-        /// <param name="longitude"></param>
-        /// <returns></returns>        
-        /// <exception cref="ArgumentException">Thrown if the lat or long is invalid.</exception>
-        public bool remove_pin_from_map(double latitude, double longitude)
-        {
-            if (((latitude < -90.00) || (latitude > 90.00)) ||
-                (longitude < -180.00) || (longitude > 180.00))
-                { throw new ArgumentException("Invalid Lat & Long", "set_map_location"); }
-
             return (true);
         }
 

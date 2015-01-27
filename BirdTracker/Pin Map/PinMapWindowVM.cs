@@ -30,9 +30,6 @@ namespace BirdTracker.Pin_Map
             _pinmap.add_pins_to_map(collection_of_locations_to_be_pinned);
         }
                        
-        public void set_map_location(double latitude, double longitude)
-        {
-            _pinmap.set_map_location(latitude: latitude, longitude: longitude);
-        }                       
+                      
     }
 }

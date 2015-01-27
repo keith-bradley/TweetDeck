@@ -15,28 +15,11 @@ namespace BirdTracker.Pin_Map
     interface IPinMap
     {
         /// <summary>
-        /// Tell the map to display at the provided latitude & longitude.
-        /// </summary>
-        /// <param name="latitude"></param>
-        /// <param name="longitude"></param>
-        /// <exception cref="ArgumentException">If the lat & long is an invalid coordinate.</exception>
-        void set_map_location(double latitude, double longitude);
-
-        /// <summary>
         /// Tell the map to display at the provided coordinates.
         /// </summary>
         /// <param name="pair"></param>
         /// <exception cref="ArgumentNullException">Thrown if pair is null.</exception>
         void set_map_location(LatLongPair pair);
-
-        /// <summary>
-        /// Tell the map to add a pin at the provided latitude & longitude.
-        /// </summary>
-        /// <param name="latitude"></param>
-        /// <param name="longitude"></param>
-        /// <returns>True on success, false on failure.</returns>
-        /// <exception cref="ArgumentException">Thrown if the lat & long is an invalid coordinate</exception>
-        bool add_pin_to_map(double latitude, double longitude);
 
         /// <summary>
         /// Tell the map to add a pin at the provided location.
@@ -52,15 +35,6 @@ namespace BirdTracker.Pin_Map
         /// <param name="colCoordinates"></param>
         /// <returns></returns>
         bool add_pins_to_map(IEnumerable<LatLongPair> colCoordinates);
-
-        /// <summary>
-        /// Tell the map to remove a pin from the provided latitude & longitude.
-        /// </summary>
-        /// <param name="latitude"></param>
-        /// <param name="longitude"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentException">Thrown if the lat or long is invalid.</exception>        
-        bool remove_pin_from_map(double latitude, double longitude);
 
         /// <summary>
         /// Tell the map to remove a pin from the provided location.

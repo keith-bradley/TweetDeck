@@ -13,31 +13,7 @@ namespace BirdTrackerTest
 {
     [TestClass]
     public class IPinMapTest
-    {
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void set_map_location_invalid_lat()
-        {
-            var map = new PinMap();
-            map.set_map_location(-360, 20);        
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void set_map_location_invalid_long()
-        {
-            var map = new PinMap();
-            map.set_map_location(20, -360);
-        }
-
-        [TestMethod]
-        public void set_map_location_valid_cordinates()
-        {
-            var map = new PinMap();
-            map.set_map_location(-90, 90);
-            Assert.IsTrue(true);
-        }
-
+    {    
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void set_map_location_null_pair()
@@ -78,29 +54,6 @@ namespace BirdTrackerTest
 
             bool bSuccess = map.add_pins_to_map(list);
             Assert.IsTrue(bSuccess);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void remove_pin_from_map_invalid_lat()
-        {
-            var map = new PinMap();
-            map.remove_pin_from_map(-900, 30);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void remove_pin_from_map_invalid_long()
-        {
-            var map = new PinMap();
-            map.remove_pin_from_map(90, -600);
-        }
-
-        [TestMethod]
-        public void remove_pin_from_map_valid_coordinates()
-        {
-            var map = new PinMap();
-            map.remove_pin_from_map(90, 90);
         }
 
         [TestMethod]

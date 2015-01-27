@@ -136,7 +136,7 @@ namespace BirdTracker
                                                                                               LAT_LONG_PAIR  = new LatLongPair
                                                                                               {
                                                                                                 Latitude    = Double.Parse((string)_rep_req.Element("lattitude")),
-                                                                                                Longitude     = Double.Parse((string)_rep_req.Element("longitude")),
+                                                                                                Longitude   = Double.Parse((string)_rep_req.Element("longitude")),
                                                                                               },
                                                                                               HOT_SPOTS     = _rep_req.Elements("hot_spots").Elements("spot").Select(xe => xe.Value).ToList(),
                                                                                               SPECIES       = (string) _rep_req.Element("species")
