@@ -83,17 +83,19 @@ namespace BirdTracker.Mapping
                 case "All":
                 {
                     rep = new ReportRequest(ReportType.eSIGHTINGSNEARALOCATION);
-                    rep.LATTITUDE = Math.Round(LATT, 2); 
-                    rep.LONGITUDE = Math.Round(LONG, 2);
-                    rep.REPORT_TITLE = String.Format("All Birds near Lattitude: {0} Longitude: {1}", rep.LATTITUDE, rep.LONGITUDE);
+                    rep.LAT_LONG_PAIR.Latitude = Math.Round(LATT, 2); 
+                    rep.LAT_LONG_PAIR.Longitude = Math.Round(LONG, 2);
+                    rep.REPORT_TITLE = String.Format("All Birds near Lattitude: {0} Longitude: {1}", 
+                                                     rep.LAT_LONG_PAIR.Latitude, rep.LAT_LONG_PAIR.Longitude);
                 }
                 break;
                 case "Notable":
                 {
                     rep = new ReportRequest(ReportType.eNOTABLE_SIGHTINGS);
-                    rep.LATTITUDE = Math.Round(LATT, 2);
-                    rep.LONGITUDE = Math.Round(LONG, 2);
-                    rep.REPORT_TITLE = String.Format("Notable Birds near Lattitude: {0} Longitude: {1}", rep.LATTITUDE, rep.LONGITUDE);
+                    rep.LAT_LONG_PAIR.Latitude = Math.Round(LATT, 2);
+                    rep.LAT_LONG_PAIR.Longitude = Math.Round(LONG, 2);
+                    rep.REPORT_TITLE = String.Format("Notable Birds near Lattitude: {0} Longitude: {1}", 
+                                                     rep.LAT_LONG_PAIR.Latitude, rep.LAT_LONG_PAIR.Longitude);
                 }
                 break;
             };

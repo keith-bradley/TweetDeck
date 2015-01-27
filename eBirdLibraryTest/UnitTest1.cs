@@ -21,77 +21,35 @@ namespace eBirdLibraryTest
     public class eBirdLibrary_Unit_Tests
     {
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void fetch_observations_near_a_location_async_Invalid_Negative_Lattitude()
         {
-            var fetcher = new eBirdDataFetcher();
-
-            try
-            {
-                Task<ObservableCollection<BirdSighting>> tsk = fetcher.fetch_observations_near_a_location_async(-91, 25);          //This should throw!
-                Assert.IsTrue(false);
-            }
-            catch (ArgumentException e)
-            {
-                Assert.IsTrue(true);    // We expect to end up here as the smallest lattitude is -90
-            }           
+            var fetcher = new eBirdDataFetcher();                       
+            Task<ObservableCollection<BirdSighting>> tsk = fetcher.fetch_observations_near_a_location_async(-91, 25);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void fetch_observations_near_a_location_async_Invalid_Positive_Lattitude()
         {
             var fetcher = new eBirdDataFetcher();
-
-            try
-            {
-                Task<ObservableCollection<BirdSighting>> tsk = fetcher.fetch_observations_near_a_location_async(91, 25);          //This should throw!
-                Assert.IsTrue(false);
-            }
-            catch (ArgumentException e)
-            {
-                Assert.IsTrue(true);    // We expect to end up here as the largest lattitude is 90 
-            }
+            Task<ObservableCollection<BirdSighting>> tsk = fetcher.fetch_observations_near_a_location_async(91, 25);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void fetch_observations_near_a_location_async_Invalid_Negative_longitude()
         {
             var fetcher = new eBirdDataFetcher();
-            try
-            {
-                Task<ObservableCollection<BirdSighting>> tsk = fetcher.fetch_observations_near_a_location_async(45, -181);          //This should throw!
-                Assert.IsTrue(false);
-
-            }
-            catch (ArgumentException e)
-            {
-                Assert.IsTrue(true);    // We expect to end up here as the smallest longitude is -180
-            }
+            Task<ObservableCollection<BirdSighting>> tsk = fetcher.fetch_observations_near_a_location_async(45, -181);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void fetch_observations_near_a_location_async_Invalid_Positive_longitude()
         {
-            var fetcher = new eBirdDataFetcher();
-            try
-            {
-                Task<ObservableCollection<BirdSighting>> tsk = fetcher.fetch_observations_near_a_location_async(45, 181);          //This should throw!
-                Assert.IsTrue(false);
-
-            }
-            catch (ArgumentException e)
-            {
-                Assert.IsTrue(true);    // We expect to end up here as the biggest longitude is 180
-            }           
+            var fetcher = new eBirdDataFetcher();                        
+            Task<ObservableCollection<BirdSighting>> tsk = fetcher.fetch_observations_near_a_location_async(45, 181);
         }
-
-
-
-
-
-
-
-
-
-
     }
 }

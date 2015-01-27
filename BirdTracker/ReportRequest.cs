@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using BirdTracker.Pin_Map;
 
 namespace BirdTracker
 {
@@ -26,14 +27,15 @@ namespace BirdTracker
     /// </summary>
     public class ReportRequest
     {
-        public ReportRequest(ReportType type)
+        public ReportRequest(ReportType type) 
         {
             REPORT_TYPE = type;
+            LAT_LONG_PAIR = new LatLongPair();
         }
 
         //For serialization
         public ReportRequest()
-        {
+        {            
         }
 
         public ReportType   REPORT_TYPE   { get; set; }
@@ -52,33 +54,17 @@ namespace BirdTracker
                     _report_title = value; 
                 }
         }
-                                       
-        private double _lattitude;
-        public double LATTITUDE
-        {
-            get { return _lattitude; }
-            set {
-                    if ((value < -90) || (value > 90))
-                        { throw new ArgumentOutOfRangeException("Lattitude must be between -90 and 90", "Lattitude"); }
 
-                    _lattitude = value; 
-                }
-        }
-                                                   
-        private double _longitude;
-        public double LONGITUDE
+        /// <summary>
+        /// The lattitude and longitude
+        /// </summary>
+        private LatLongPair _lat_long_pair;
+        public LatLongPair LAT_LONG_PAIR
         {
-            get { return _longitude; }
-            set {
-                    if ((value < -180) || (value > 180))
-                    {
-                        throw new ArgumentOutOfRangeException("Longitude must be between -180 and 180", "Longitude");
-                    }
-
-                    _longitude = value; 
-                }
+            get { return _lat_long_pair; }
+            set { _lat_long_pair = value; }
         }
-                                     
+                                                            
         public String       SPECIES       { get; set; }
         public List<string> HOT_SPOTS     { get; set; }
 
@@ -91,8 +77,8 @@ namespace BirdTracker
             StringBuilder sb = new StringBuilder("<Report_Request>");
             sb.AppendFormat("<report_title>{0}</report_title>"  , REPORT_TITLE);
             sb.AppendFormat("<report_type>{0}</report_type>"    , REPORT_TYPE.ToString());
-            sb.AppendFormat("<lattitude>{0}</lattitude>"        , LATTITUDE);
-            sb.AppendFormat("<longitude>{0}</longitude>"        , LONGITUDE);
+            sb.AppendFormat("<lattitude>{0}</lattitude>"        , LAT_LONG_PAIR.Latitude);
+            sb.AppendFormat("<longitude>{0}</longitude>"        , LAT_LONG_PAIR.Longitude);
             sb.AppendFormat("<species>{0}</species>"            , SPECIES);
 
             if ((HOT_SPOTS != null) && (HOT_SPOTS.Count > 0))

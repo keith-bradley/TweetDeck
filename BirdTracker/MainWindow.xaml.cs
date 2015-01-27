@@ -15,6 +15,7 @@ using BirdTracker.Exclude_Librarian;
 using BirdTracker.Interfaces;
 using BirdTracker.Name_Librarian;
 using BirdTracker.Support;
+using BirdTracker.Pin_Map;
 
 // Possible features/to do for this application
 // - Schedule the refresh and do a popup if an interesting bird pops up.
@@ -132,8 +133,11 @@ namespace BirdTracker
                                                                                           {
                                                                                               REPORT_TITLE  = (string)_rep_req.Element("report_title"),
                                                                                               REPORT_TYPE   = (ReportType)Enum.Parse(typeof(ReportType), ((string)_rep_req.Element("report_type"))),
-                                                                                              LATTITUDE     = Double.Parse((string)_rep_req.Element("lattitude")),
-                                                                                              LONGITUDE     = Double.Parse((string)_rep_req.Element("longitude")),
+                                                                                              LAT_LONG_PAIR  = new LatLongPair
+                                                                                              {
+                                                                                                Latitude    = Double.Parse((string)_rep_req.Element("lattitude")),
+                                                                                                Longitude     = Double.Parse((string)_rep_req.Element("longitude")),
+                                                                                              },
                                                                                               HOT_SPOTS     = _rep_req.Elements("hot_spots").Elements("spot").Select(xe => xe.Value).ToList(),
                                                                                               SPECIES       = (string) _rep_req.Element("species")
                                                                                           }).SingleOrDefault()

@@ -313,11 +313,12 @@ namespace BirdTracker
 
                 ReportRequest rep = new ReportRequest(ReportType.eSPECIES_SIGHTING);
                 rep.REPORT_TITLE = String.Format("{0} around {1} : {2}", 
-                                                 parms.species_common_name, ReportRequest.LATTITUDE, ReportRequest.LONGITUDE);
+                                                 parms.species_common_name, ReportRequest.LAT_LONG_PAIR.Latitude,
+                                                 ReportRequest.LAT_LONG_PAIR.Longitude);
                 
                 rep.SPECIES   = parms.species_name;
-                rep.LATTITUDE = ReportRequest.LATTITUDE;
-                rep.LONGITUDE = ReportRequest.LONGITUDE;
+                rep.LAT_LONG_PAIR.Latitude = ReportRequest.LAT_LONG_PAIR.Latitude;
+                rep.LAT_LONG_PAIR.Longitude = ReportRequest.LAT_LONG_PAIR.Longitude;
 
                 WindowManager.createReportWindow(rep);
             }
@@ -435,11 +436,11 @@ namespace BirdTracker
                 switch (ReportRequest.REPORT_TYPE)
                 {
                     case ReportType.eSIGHTINGSNEARALOCATION:
-                        { tsk = fetcher.fetch_observations_near_a_location_async(ReportRequest.LATTITUDE, ReportRequest.LONGITUDE); } break;
+                        { tsk = fetcher.fetch_observations_near_a_location_async(ReportRequest.LAT_LONG_PAIR.Latitude, ReportRequest.LAT_LONG_PAIR.Longitude); } break;
                     case ReportType.eNOTABLE_SIGHTINGS:
-                        { tsk = fetcher.fetch_recent_nearby_notable_observations_async(ReportRequest.LATTITUDE, ReportRequest.LONGITUDE); } break;
+                        { tsk = fetcher.fetch_recent_nearby_notable_observations_async(ReportRequest.LAT_LONG_PAIR.Latitude, ReportRequest.LAT_LONG_PAIR.Longitude); } break;
                     case ReportType.eSPECIES_SIGHTING:
-                        { tsk = fetcher.fetch_recent_nearby_observations_of_a_species_async(ReportRequest.LATTITUDE, ReportRequest.LONGITUDE, ReportRequest.SPECIES); } break;
+                        { tsk = fetcher.fetch_recent_nearby_observations_of_a_species_async(ReportRequest.LAT_LONG_PAIR.Latitude, ReportRequest.LAT_LONG_PAIR.Longitude, ReportRequest.SPECIES); } break;
                     case ReportType.eHOTSPOT_SIGHTING:
                         { tsk = fetcher.fetch_recent_observations_at_hotspots_async(ReportRequest.HOT_SPOTS); } break;
                     case ReportType.eSPECIES_NEAR_HOTSPOT:
