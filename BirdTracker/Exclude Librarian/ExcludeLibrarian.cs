@@ -20,6 +20,13 @@ namespace BirdTracker.Exclude_Librarian
         private Dictionary<string, string> _library = new Dictionary<string, string>();         // The library.
 
         /// <summary>
+        /// Read only strings used by the Exclude Librarian.
+        /// </summary>
+        private readonly string _xml_exclude_library = "exclude_library";
+        private readonly string _xml_excludes = "excludes";
+        private readonly string _xml_exclude = "exclude";
+
+        /// <summary>
         /// CTOR is private as this is a singleton
         /// </summary>
         private ExcludeLibrarian()
@@ -28,22 +35,12 @@ namespace BirdTracker.Exclude_Librarian
 
         /// <summary>
         /// Gets the singelton librarian.
-        /// </summary>
-        /// <returns></returns>
-        //public static ExcludeLibrarian get_instance()
-        //{
-        //    return (_librarian);
-        //}
-
-        
-
+        /// </summary>               
         public static ExcludeLibrarian EXCLUDE_LIBRARIAN
         {
             get { return _librarian; }            
         }
         
-
-
         /// <summary>
         /// Add an item to the library.
         /// </summary>
@@ -120,13 +117,11 @@ namespace BirdTracker.Exclude_Librarian
         {
             if (_library.Count > 0)
             {
-                StringBuilder sb = new StringBuilder("<exclude_library><excludes>");
+                StringBuilder sb = new StringBuilder(String.Format("<{0}><{1}>", _xml_exclude_library, _xml_excludes));
                 foreach (var scientific_name in _library.Keys)
-                {
-                    sb.AppendFormat("<exclude>{0}</exclude>", scientific_name);
-                }
+                    { sb.AppendFormat("<{1}>{0}</{1}>", scientific_name, _xml_exclude); }
 
-                sb.Append("</excludes></exclude_library>");
+                sb.Append(String.Format("</{0}></{1}>", _xml_excludes, _xml_exclude_library));
 
                 Properties.Settings.Default.EXCLUDE_LIST = sb.ToString();
                 Properties.Settings.Default.Save();
@@ -146,7 +141,7 @@ namespace BirdTracker.Exclude_Librarian
                  var xdoc = Utilities.load_xml_from_string(saved_library);
                  if (xdoc != null)
                  {
-                     var lstExcludedBirds = xdoc.Root.Element("excludes").Elements("exclude").Select(element => element.Value);
+                     var lstExcludedBirds = xdoc.Root.Element(_xml_excludes).Elements(_xml_exclude).Select(element => element.Value);
                      foreach (var exclude in lstExcludedBirds)
                      {
                          add_item_to_library(exclude);
