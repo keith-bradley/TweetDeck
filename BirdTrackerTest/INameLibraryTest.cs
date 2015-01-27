@@ -1,13 +1,13 @@
-﻿using System;
+﻿/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
+using System;
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BirdTracker.Name_Librarian;
-
-/// Author: Keith Bradley
-///         Ottawa, Ontario, Canada
-///         Copyright 2015
 
 namespace BirdTrackerTest
 {
@@ -17,51 +17,31 @@ namespace BirdTrackerTest
         private INameLibrary librarian = NameLibrarian.get_instance();
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void add_name_pair_null_common_name()
         {
-            var bExceptionThrown = false;
-            try
-                { librarian.add_name_pair(null, "viva loca"); }
-            catch (ArgumentException)
-                { bExceptionThrown = true; }
-
-            Assert.IsTrue(bExceptionThrown);               
+            librarian.add_name_pair(null, "viva loca");
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void add_name_pair_blank_common_name()
-        {
-            var bExceptionThrown = false;
-            try
-                { librarian.add_name_pair("", "viva loca"); }
-            catch (ArgumentException)
-                { bExceptionThrown = true; }
-
-            Assert.IsTrue(bExceptionThrown);
+        {                       
+            librarian.add_name_pair("", "viva loca");    
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void add_name_pair_null_scientific_name()
         {
-            var bExceptionThrown = false;
-            try
-                { librarian.add_name_pair("crazy bird", null); }
-            catch (ArgumentException)
-                { bExceptionThrown = true; }
-
-            Assert.IsTrue(bExceptionThrown);
+            librarian.add_name_pair("crazy bird", null);             
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void add_name_pair_empty_scientific_name()
-        {
-            var bExceptionThrown = false;
-            try
-                { librarian.add_name_pair("crazy bird", ""); }
-            catch (ArgumentException)
-                { bExceptionThrown = true; }
-
-            Assert.IsTrue(bExceptionThrown);
+        {                        
+            librarian.add_name_pair("crazy bird", "");
         }
 
         [TestMethod]
@@ -80,27 +60,17 @@ namespace BirdTrackerTest
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void lookup_scientific_name_null_common_name()
         {
-            var bExceptionThrown = false;
-            try
-                { librarian.lookup_scientific_name(null); }
-            catch (ArgumentException)
-                { bExceptionThrown = true; }
-
-            Assert.IsTrue(bExceptionThrown);
+            librarian.lookup_scientific_name(null);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void lookup_scientific_name_blank_common_name()
-        {
-            var bExceptionThrown = false;
-            try
-                { librarian.lookup_scientific_name(""); }
-            catch (ArgumentException)
-                { bExceptionThrown = true; }
-
-            Assert.IsTrue(bExceptionThrown);
+        {                       
+            librarian.lookup_scientific_name("");
         }
 
         [TestMethod]
@@ -119,27 +89,17 @@ namespace BirdTrackerTest
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void lookup_common_name_null_scientific_name()
         {
-            var bExceptionThrown = false;
-            try
-                { librarian.lookup_common_name(null); }
-            catch (ArgumentException)
-                { bExceptionThrown = true; }
-
-            Assert.IsTrue(bExceptionThrown);
+            librarian.lookup_common_name(null);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void lookup_common_name_blank_scientific_name()
         {
-            var bExceptionThrown = false;
-            try
-                { librarian.lookup_common_name(""); }
-            catch (ArgumentException)
-                { bExceptionThrown = true; }
-
-            Assert.IsTrue(bExceptionThrown);
+            librarian.lookup_common_name("");                       
         }
 
         [TestMethod]
@@ -158,27 +118,17 @@ namespace BirdTrackerTest
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void scientific_name_exists_null_name()
         {
-            var bExceptionThrown = false;
-            try
-                { librarian.scientific_name_exists(null); }
-            catch (ArgumentException)
-                { bExceptionThrown = true; }
-
-            Assert.IsTrue(bExceptionThrown);
+            librarian.scientific_name_exists(null);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void scientific_name_exists_blank_name()
         {
-            var bExceptionThrown = false;
-            try
-                { librarian.scientific_name_exists(""); }
-            catch (ArgumentException)
-                { bExceptionThrown = true; }
-
-            Assert.IsTrue(bExceptionThrown);
+            librarian.scientific_name_exists("");    
         }
 
         [TestMethod]
@@ -197,27 +147,17 @@ namespace BirdTrackerTest
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void common_name_exists_null_name()
-        {
-            var bExceptionThrown = false;
-            try
-                { librarian.common_name_exists(null); }
-            catch (ArgumentException)
-                { bExceptionThrown = true; }
-
-            Assert.IsTrue(bExceptionThrown);
+        {           
+            librarian.common_name_exists(null);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void common_name_exists_blank_name()
-        {
-            var bExceptionThrown = false;
-            try
-                { librarian.common_name_exists(""); }
-            catch (ArgumentException)
-                { bExceptionThrown = true; }
-
-            Assert.IsTrue(bExceptionThrown);
+        {           
+            librarian.common_name_exists("");
         }
 
         [TestMethod]

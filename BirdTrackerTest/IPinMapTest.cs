@@ -1,4 +1,8 @@
-﻿using System;
+﻿/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
+using System;
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
@@ -130,8 +134,5 @@ namespace BirdTrackerTest
             var success = map.remove_pins_from_map(new List<LatLongPair>());
             Assert.IsTrue(success);
         }
-
-
-
     }
 }
