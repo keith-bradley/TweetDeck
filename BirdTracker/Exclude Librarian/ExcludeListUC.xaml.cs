@@ -1,10 +1,11 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using BirdTracker.Interfaces;
-
-/// Author: Keith Bradley
+﻿/// Author: Keith Bradley
 ///         Ottawa, Ontario, Canada
 ///         Copyright 2015
+
+using System.Windows;
+using System.Windows.Controls;
+using BirdTracker.Interfaces;
+using System;
 
 namespace BirdTracker.Exclude_Librarian
 {
@@ -15,8 +16,15 @@ namespace BirdTracker.Exclude_Librarian
     {
         private IWindowManager _windowsManager;
 
+        /// <summary>
+        /// CTOR
+        /// </summary>
+        /// <param name="windowsManager">Window's Manager</param>
         public ExcludeListUC(IWindowManager windowsManager)
         {
+            if (windowsManager == null)
+                { throw new ArgumentNullException("windowsManger cannot be null.", "windowsManager"); }
+
             InitializeComponent();
             _windowsManager = windowsManager;
         }
@@ -36,8 +44,6 @@ namespace BirdTracker.Exclude_Librarian
         /// <summary>
         /// Event handler when the report is first loaded.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ReportCtrl_Loaded(object sender,
                                        RoutedEventArgs e)
         {

@@ -1,4 +1,8 @@
-﻿using System;
+﻿/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
+using System;
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,10 +10,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 using eBirdLibrary;
 using System.Collections.ObjectModel;
-
-/// Author: Keith Bradley
-///         Ottawa, Ontario, Canada
-///         Copyright 2015
 
 namespace eBirdLibraryTest
 {

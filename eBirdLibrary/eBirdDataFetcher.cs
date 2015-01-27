@@ -1,4 +1,8 @@
-﻿using System;
+﻿/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,23 +13,12 @@ using System.IO;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 
-/// Author: Keith Bradley
-///         Ottawa, Ontario, Canada
-///         Copyright 2015
-
 // Things to do:
 // 1. Sort the retured lists by common name.
 // 2. Add unit testing project to test the parameter checking for each of these public methods.
 // 3. Currently don't support the JSON format.
 // 4. Instead of showing multiple entries for the same bird over whatever time period, Just show it once with a count of the number
 //    of times it has been reported.
-
-//http://www.findlatitudeandlongitude.com/?loc=Victoria%2C+BC%2C+Canada
-
-//45.42, -75.43   Ottawa
-//48.42,-123.36	Victoria
-//29.69, -82.33	Gainsville
-
 
 namespace eBirdLibrary
 {

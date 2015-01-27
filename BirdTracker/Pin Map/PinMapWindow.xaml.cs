@@ -1,15 +1,10 @@
-﻿using System;
+﻿/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Microsoft.Maps.MapControl.WPF;
 
 namespace BirdTracker.Pin_Map
@@ -35,9 +30,7 @@ namespace BirdTracker.Pin_Map
         public void initialize(IEnumerable<BirdPinData> collection_of_locations_to_be_pinned)
         {
             if (collection_of_locations_to_be_pinned == null)
-            {
-                throw new ArgumentNullException("collection of locations cannot be null.", "initialize");
-            }
+                { throw new ArgumentNullException("collection of locations cannot be null.", "initialize"); }
 
             if (MainGrid.DataContext != null)
             {

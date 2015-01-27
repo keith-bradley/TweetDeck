@@ -1,12 +1,12 @@
-﻿using System;
+﻿/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using BirdTracker.Support;
-
-/// Author: Keith Bradley
-///         Ottawa, Ontario, Canada
-///         Copyright 2015
 
 namespace BirdTracker.Name_Librarian
 {
@@ -45,13 +45,9 @@ namespace BirdTracker.Name_Librarian
         public bool add_name_pair(string strCommon_Name, string strScientific_Name)
         {
             if (String.IsNullOrEmpty(strCommon_Name))
-            {
-                throw new ArgumentException("The common name cannot be blank", "add_name_pair");
-            }
+                { throw new ArgumentException("The common name cannot be blank", "add_name_pair"); }
             else if (String.IsNullOrEmpty(strScientific_Name))
-            {
-                throw new ArgumentException("The scientific name cannot be blank", "add_name_pair");
-            }
+                { throw new ArgumentException("The scientific name cannot be blank", "add_name_pair"); }
 
             bool bAdded = false;
 
@@ -75,9 +71,7 @@ namespace BirdTracker.Name_Librarian
         public string lookup_scientific_name(string strCommon_Name)
         {
             if (String.IsNullOrEmpty(strCommon_Name))
-            {
-                throw new ArgumentException("The common name cannot be blank", "lookup_scientific_name");
-            }
+                { throw new ArgumentException("The common name cannot be blank", "lookup_scientific_name"); }
 
             string strScientific_name = "";
             if (common_to_scientific_dictionary.ContainsKey(strCommon_Name))
@@ -97,9 +91,7 @@ namespace BirdTracker.Name_Librarian
         public string lookup_common_name(string strScientific_Name)
         {
             if (String.IsNullOrEmpty(strScientific_Name))
-            {
-                throw new ArgumentException("The scientific name cannot be blank", "lookup_common_name");
-            }
+                { throw new ArgumentException("The scientific name cannot be blank", "lookup_common_name"); }
 
             string strCommon_Name = "";
             if (scientific_to_common_dictionary.ContainsKey(strScientific_Name))
@@ -119,9 +111,7 @@ namespace BirdTracker.Name_Librarian
         public bool scientific_name_exists(string strScientific_Name)
         {
             if (String.IsNullOrEmpty(strScientific_Name))
-            {
-                throw new ArgumentException("The scientific name cannot be blank", "scientific_name_exists");
-            }
+                { throw new ArgumentException("The scientific name cannot be blank", "scientific_name_exists"); }
 
             var bExists = scientific_to_common_dictionary.ContainsKey(strScientific_Name);
             return (bExists);
@@ -136,9 +126,7 @@ namespace BirdTracker.Name_Librarian
         public bool common_name_exists(string strCommon_Name)
         {
             if (String.IsNullOrEmpty(strCommon_Name))
-            {
-                throw new ArgumentException("The common name cannot be blank", "common_name_exists");
-            }
+                { throw new ArgumentException("The common name cannot be blank", "common_name_exists"); }
 
             var bExists = common_to_scientific_dictionary.ContainsKey(strCommon_Name);
             return (bExists);
@@ -217,5 +205,4 @@ namespace BirdTracker.Name_Librarian
             set { _value = value; }
         }        
     }
-
 }

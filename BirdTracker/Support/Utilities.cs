@@ -1,10 +1,10 @@
-﻿using System;
-using System.IO;
-using System.Xml.Linq;
-
-/// Author: Keith Bradley
+﻿/// Author: Keith Bradley
 ///         Ottawa, Ontario, Canada
 ///         Copyright 2015
+
+using System;
+using System.IO;
+using System.Xml.Linq;
 
 namespace BirdTracker.Support
 {
@@ -29,6 +29,20 @@ namespace BirdTracker.Support
             XDocument xdoc1 = XDocument.Load(new StringReader(strXML));
             return (xdoc1);
         }
-    
+
+        /// <summary>
+        /// Convert a string to a double. Will not throw.
+        /// </summary>
+        /// <param name="str_number">The number as a string.</param>
+        /// <returns>The number or zero.</returns>
+        public static double string_to_double(string str_number)
+        {
+            double result;
+            double.TryParse(str_number, out result);
+            return (result);
+        }
+
+
+
     }
 }

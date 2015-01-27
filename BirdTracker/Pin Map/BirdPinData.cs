@@ -45,8 +45,6 @@ namespace BirdTracker.Pin_Map
                 : base(latitude: latitude, longitude: longitude, title: common_name)
         {
             SCIENTIFIC_NAME = scientific_name;
-        }
-    
-       
+        }          
     }
 }

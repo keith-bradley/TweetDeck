@@ -1,4 +1,8 @@
-﻿using System;
+﻿/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,10 +16,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Maps.MapControl.WPF;
 using BirdTracker.Interfaces;
-
-/// Author: Keith Bradley
-///         Ottawa, Ontario, Canada
-///         Copyright 2015
 
 namespace BirdTracker.Mapping
 {

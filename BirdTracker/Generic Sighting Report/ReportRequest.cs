@@ -1,8 +1,8 @@
-﻿using System;
-
-/// Author: Keith Bradley
+﻿/// Author: Keith Bradley
 ///         Ottawa, Ontario, Canada
 ///         Copyright 2015
+
+using System;
 
 namespace BirdTracker.Generic_Sighting_Report
 {
@@ -17,6 +17,9 @@ namespace BirdTracker.Generic_Sighting_Report
     /// </summary>
     public class ReportRequest
     {
+        /// <summary>
+        /// CTOR
+        /// </summary>
         public ReportRequest()
         {
         }
@@ -33,8 +36,8 @@ namespace BirdTracker.Generic_Sighting_Report
         {
             get { return _report_title; }
             set {
-                if (string.IsNullOrEmpty(value))
-                    throw new ArgumentException("Report Title cannot be blank", "REPORT_TITLE");
+                    if (string.IsNullOrEmpty(value))
+                        { throw new ArgumentException("Report Title cannot be blank", "REPORT_TITLE"); }
 
                     _report_title = value;                        
                 }
@@ -46,9 +49,7 @@ namespace BirdTracker.Generic_Sighting_Report
             get { return _lattitude; }
             set {
                     if ((value < -90) || (value > 90))
-                    {
-                        throw new ArgumentOutOfRangeException("Lattitude must be between -90 and 90", "Lattitude");
-                    }
+                        { throw new ArgumentOutOfRangeException("Lattitude must be between -90 and 90", "Lattitude"); }
 
                     _lattitude = value; 
                 }
@@ -60,9 +61,7 @@ namespace BirdTracker.Generic_Sighting_Report
             get { return _longitude; }
             set {
                     if ((value < -180) || (value > 180))
-                    {
-                        throw new ArgumentOutOfRangeException("Longitude must be between -180 and 180", "Longitude");
-                    }
+                        { throw new ArgumentOutOfRangeException("Longitude must be between -180 and 180", "Longitude"); }
                 
                     _longitude = value; 
                 }

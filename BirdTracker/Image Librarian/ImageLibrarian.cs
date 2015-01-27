@@ -1,4 +1,8 @@
-﻿using System;
+﻿/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
+using System;
 using System.Collections.Generic;
 using System.Data.Services.Client;
 using System.Diagnostics;
@@ -7,10 +11,6 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
-
-/// Author: Keith Bradley
-///         Ottawa, Ontario, Canada
-///         Copyright 2015
 
 namespace BirdTracker.Image_Librarian
 {

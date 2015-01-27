@@ -1,13 +1,13 @@
-﻿using System;
+﻿/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
+using System;
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BirdTracker.Exclude_Librarian;
-
-/// Author: Keith Bradley
-///         Ottawa, Ontario, Canada
-///         Copyright 2015
 
 namespace BirdTrackerTest
 {
@@ -17,36 +17,17 @@ namespace BirdTrackerTest
         IExcudeLibary librarian = ExcludeLibrarian.get_instance();
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void add_item_to_library_null_item()
-        {
-            bool bExceptionThrown = false;
-
-            try
-            {
-                var bItemAdded = librarian.add_item_to_library(null);
-            }
-            catch (ArgumentException)
-            {
-                bExceptionThrown = true;
-            }
-
-            Assert.IsTrue(bExceptionThrown);
+        {                  
+            var bItemAdded = librarian.add_item_to_library(null);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void add_item_to_library_blank_item()
-        {
-            bool bExceptionThrown = false;
-            try
-            {
-                var bItemAdded = librarian.add_item_to_library("");
-            }
-            catch (ArgumentException)
-            {
-                bExceptionThrown = true;
-            }
-
-            Assert.IsTrue(bExceptionThrown);
+        {           
+            var bItemAdded = librarian.add_item_to_library("");            
         }
 
         [TestMethod]
@@ -67,35 +48,17 @@ namespace BirdTrackerTest
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void remove_item_from_library_null_item()
-        {
-            bool bExceptionThrown = false;
-            try
-            {
-                var bItemRemoved = librarian.remove_item_from_library(null);
-            }
-            catch (ArgumentException)
-            {
-                bExceptionThrown = true;
-            }
-
-            Assert.IsTrue(bExceptionThrown);
+        {                                  
+            var bItemRemoved = librarian.remove_item_from_library(null);            
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void remove_item_from_library_blank_item()
         {
-            bool bExceptionThrown = false;
-            try
-            {
-                var bItemRemoved = librarian.remove_item_from_library("");
-            }
-            catch (ArgumentException)
-            {
-                bExceptionThrown = true;
-            }
-
-            Assert.IsTrue(bExceptionThrown);
+            var bItemRemoved = librarian.remove_item_from_library("");            
         }
 
         [TestMethod]
@@ -114,35 +77,17 @@ namespace BirdTrackerTest
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void item_is_in_library_null_item()
-        {
-            bool bExceptionThrown = false;
-            try
-            {
-                var bItemInLibrary = librarian.item_is_in_library(null);
-            }
-            catch (ArgumentException)
-            {
-                bExceptionThrown = true;
-            }
-
-            Assert.IsTrue(bExceptionThrown);
+        {                                  
+            var bItemInLibrary = librarian.item_is_in_library(null);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void item_is_in_library_blank_item()
         {
-            bool bExceptionThrown = false;
-            try
-            {
-                var bItemInLibrary = librarian.item_is_in_library("");
-            }
-            catch (ArgumentException)
-            {
-                bExceptionThrown = true;
-            }
-
-            Assert.IsTrue(bExceptionThrown);
+            var bItemInLibrary = librarian.item_is_in_library("");            
         }
 
         [TestMethod]

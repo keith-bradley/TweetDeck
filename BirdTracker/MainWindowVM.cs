@@ -45,9 +45,7 @@ namespace BirdTracker
             get { return _windowManager; }
             set {
                     if (value == null)
-                    {
-                        throw new ArgumentNullException("WindowManager cannot be null", "WindowManager");
-                    }
+                        { throw new ArgumentNullException("WindowManager cannot be null.", "WindowManager"); }
 
                     _windowManager = value; 
                 }

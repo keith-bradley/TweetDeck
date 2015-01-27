@@ -1,9 +1,9 @@
-﻿using System.IO;
-using System.Xml.Serialization;
-
-/// Author: Keith Bradley
+﻿/// Author: Keith Bradley
 ///         Ottawa, Ontario, Canada
 ///         Copyright 2015
+
+using System.IO;
+using System.Xml.Serialization;
 
 namespace BirdTracker.Support
 {
@@ -12,8 +12,6 @@ namespace BirdTracker.Support
         /// <summary>
         /// Serialize any object to an xml string
         /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
         public static string SerializeToString(object obj)
         {
             if (obj != null)

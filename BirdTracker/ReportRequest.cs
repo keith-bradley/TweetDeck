@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-/// Author: Keith Bradley
+﻿/// Author: Keith Bradley
 ///         Ottawa, Ontario, Canada
 ///         Copyright 2015
 
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace BirdTracker
 {
@@ -48,9 +47,7 @@ namespace BirdTracker
             get { return _report_title; }
             set {
                     if (String.IsNullOrEmpty(value))
-                    {
-                        throw new ArgumentException("Report Title should not be blank", "REPORT_TITLE");                
-                    }
+                        { throw new ArgumentException("Report Title should not be blank", "REPORT_TITLE"); }
 
                     _report_title = value; 
                 }
@@ -62,9 +59,7 @@ namespace BirdTracker
             get { return _lattitude; }
             set {
                     if ((value < -90) || (value > 90))
-                    {
-                        throw new ArgumentOutOfRangeException("Lattitude must be between -90 and 90", "Lattitude");
-                    }
+                        { throw new ArgumentOutOfRangeException("Lattitude must be between -90 and 90", "Lattitude"); }
 
                     _lattitude = value; 
                 }

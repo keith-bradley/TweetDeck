@@ -1,4 +1,8 @@
-﻿using System;
+﻿/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -12,13 +16,9 @@ using BirdTracker.Image_Librarian;
 using BirdTracker.Interfaces;
 using BirdTracker.Location_Manager;
 using BirdTracker.Name_Librarian;
+using BirdTracker.Pin_Map;
 using BirdTracker.Support;
 using eBirdLibrary;
-using BirdTracker.Pin_Map;
-
-/// Author: Keith Bradley
-///         Ottawa, Ontario, Canada
-///         Copyright 2015
 
 namespace BirdTracker
 {
@@ -134,9 +134,7 @@ namespace BirdTracker
             get { return _WindowManager; }
             set {
                     if (value == null)
-                    {
-                        throw new ArgumentNullException("Window Manager cannot be null.", "WindowManager");
-                    }
+                        { throw new ArgumentNullException("Window Manager cannot be null.", "WindowManager"); }
 
                     _WindowManager = value; 
                 }
@@ -150,10 +148,8 @@ namespace BirdTracker
         {
             get { return _view; }
             set {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("The view cannot be null", "_View");
-                }
+                    if (value == null)
+                        { throw new ArgumentNullException("The view cannot be null", "_View"); }
 
                     _view = value; 
                 }
@@ -195,17 +191,15 @@ namespace BirdTracker
             {
                 var item = si[0] as BirdSighting;
 
-                PinMapWindow window = new PinMapWindow();
-                double lat;
-                double.TryParse(item._latitude, out lat);
-
-                double lng;
-                double.TryParse(item._longitude, out lng);
-
+                double lat = Utilities.string_to_double(item._latitude);
+                double lng = Utilities.string_to_double(item._longitude);
+                
                 var col = new List<BirdPinData>();
                 var data = new BirdPinData(latitude: lat, longitude: lng, common_name: item._common_name, scientific_name: item._scientific_name);
                 data.DATE_REPORTED = item._observation_date;
                 col.Add(data);
+
+                PinMapWindow window = new PinMapWindow();
                 window.initialize(col);
                 window.ShowDialog();
             }        
@@ -225,14 +219,11 @@ namespace BirdTracker
                 foreach (var item in items)
                 {
                     var bird_sighting = item as BirdSighting;
-                    double lat;
-                    double.TryParse(bird_sighting._latitude, out lat);
-
-                    double lng;
-                    double.TryParse(bird_sighting._longitude, out lng);
-
+                    double lat = Utilities.string_to_double(bird_sighting._latitude);
+                    double lng = Utilities.string_to_double(bird_sighting._longitude);
+                    
                     var data = new BirdPinData(latitude: lat, longitude: lng, common_name: bird_sighting._common_name,
-                                                    scientific_name: bird_sighting._scientific_name);
+                                               scientific_name: bird_sighting._scientific_name);
 
                     data.DATE_REPORTED = bird_sighting._observation_date;
                     collection.Add(data);
@@ -247,7 +238,7 @@ namespace BirdTracker
         /// <summary>
         /// Exclude the specified species
         /// </summary>
-        /// <param name="o"></param>
+        /// <param name="o">The List Box Control</param>
         private void exclude_species(object o)
         {
             // When dealing with a context menu (cm) we have to get the control that the cm is bound to.
@@ -537,9 +528,7 @@ namespace BirdTracker
             get { return _species_name; }
             set {
                     if (String.IsNullOrEmpty(value))
-                    {
-                        throw new ArgumentException("Species Name cannot be blank", "species_name");
-                    }
+                        { throw new ArgumentException("Species Name cannot be blank", "species_name"); }
 
                     _species_name = value;                        
                 }
@@ -554,9 +543,7 @@ namespace BirdTracker
             get { return _species_common_name; }
             set {
                     if (String.IsNullOrEmpty(value))
-                    {
-                        throw new ArgumentException("Common Name cannot be blank", "species_common_name");
-                    }
+                        { throw new ArgumentException("Common Name cannot be blank", "species_common_name"); }
 
                     _species_common_name = value; 
                 }

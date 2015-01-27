@@ -1,4 +1,8 @@
-﻿using System;
+﻿/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -10,10 +14,6 @@ using BirdTracker.Interfaces;
 using BirdTracker.Name_Librarian;
 using BirdTracker.Support;
 
-/// Author: Keith Bradley
-///         Ottawa, Ontario, Canada
-///         Copyright 2015
-
 namespace BirdTracker.Exclude_Librarian
 {
     /// <summary>
@@ -21,7 +21,7 @@ namespace BirdTracker.Exclude_Librarian
     /// </summary>
     public class ExcludeListVM : INotifyPropertyChanged
     {
-        private INameLibrary named_library = NameLibrarian.get_instance();
+        private INameLibrary  named_library   = NameLibrarian.get_instance();
         private IExcudeLibary exclude_library = ExcludeLibrarian.get_instance();
 
         private ObservableCollection<ExcludeListItem> _exclude_list;
@@ -43,9 +43,7 @@ namespace BirdTracker.Exclude_Librarian
             set
             {
                 if (value == null)
-                {
-                    throw new ArgumentNullException("Window Manager cannot be null.", "WindowManager");
-                }
+                    { throw new ArgumentNullException("Window Manager cannot be null.", "WindowManager"); }
 
                 _WindowManager = value;
             }
@@ -61,16 +59,14 @@ namespace BirdTracker.Exclude_Librarian
             set
             {
                 if (value == null)
-                {
-                    throw new ArgumentNullException("The view cannot be null", "_View");
-                }
+                    { throw new ArgumentNullException("The view cannot be null", "_View"); }
 
                 _view = value;
             }
         }
 
         /// <summary>
-        /// Close report cmd
+        /// Close report CMD
         /// </summary>
         private ICommand _CloseReportCMD;
         public ICommand CLOSE_REPORT_CMD
@@ -80,7 +76,7 @@ namespace BirdTracker.Exclude_Librarian
         }
 
         /// <summary>
-        /// Include Species CmD
+        /// Include Species CMD
         /// </summary>
         private ICommand _includeSpeciesCMD;
         public ICommand INCLUDE_SPECIES_CMD
@@ -104,6 +100,9 @@ namespace BirdTracker.Exclude_Librarian
             INCLUDE_SPECIES_CMD = new RelayCommand(new Action<object>(includeSpecies));
         }
 
+        /// <summary>
+        /// Refresh the excluded libraries report.
+        /// </summary>
         public void refresh()
         {
             var lst = exclude_library.get_all_excluded_birds();
@@ -112,7 +111,6 @@ namespace BirdTracker.Exclude_Librarian
                 initialize(lst);
             }
         }
-
 
         /// <summary>
         /// Close the report.
@@ -126,7 +124,7 @@ namespace BirdTracker.Exclude_Librarian
         /// <summary>
         /// Restore the excluded species (i.e. remove from the exclude list).
         /// </summary>
-        /// <param name="o"></param>
+        /// <param name="o">The List Box</param>
         private void includeSpecies(object o)
         {
             var lb = o as ListBox;
@@ -150,9 +148,7 @@ namespace BirdTracker.Exclude_Librarian
         private void initialize(IEnumerable<string> lstExclusions)
         {
             if (lstExclusions == null)
-            {
-                throw new ArgumentNullException("The list of exclusions cannot be null.", "initialize");
-            }
+                { throw new ArgumentNullException("The list of exclusions cannot be null.", "initialize"); }
 
             ImageLibrarian librarian = ImageLibrarian.getInstance();
             ObservableCollection<ExcludeListItem> lstExcludeItems = new ObservableCollection<ExcludeListItem>();

@@ -17,9 +17,7 @@ using BirdTracker.Name_Librarian;
 using BirdTracker.Support;
 
 // Possible features/to do for this application
-// - Map the location of the sighting (Get the directions to the location as well?)
 // - Schedule the refresh and do a popup if an interesting bird pops up.
-// - Convert to windows 8 application.
 // - Sorting of the results.
 // - info on the status bar.
 // - Allow the user to select the location.
@@ -27,8 +25,6 @@ using BirdTracker.Support;
 //      - specific species of bird (or birds)      
 //      - specific location
 //      - defined hotspots
-// - Complete tooltips.
-// - Exclude species of birds that are reported.
 // Bing maps key: AlgGlvdk8YG15kLf44UFdyq18MtBB890r0NnItZb3187ryBDswn9xuq3h58Oo5vX
 
 namespace BirdTracker 
@@ -57,9 +53,7 @@ namespace BirdTracker
         public void createReportWindow(ReportRequest reportInfo)
         {
             if (reportInfo == null)
-            {
-                throw new ArgumentNullException("Report request cannot be null", "createReportWindow");
-            }
+                { throw new ArgumentNullException("Report request cannot be null", "createReportWindow"); }
                                        
             var report = new GenericBirdSightingsReport(reportInfo, this);
             DockingPanel.Children.Add(report);
@@ -178,9 +172,7 @@ namespace BirdTracker
         public void closeReport(GenericBirdSightingsReport report)
         {
             if (report == null)
-            {
-                throw new ArgumentNullException("Report cannot be null.", "closeReport");
-            }
+                { throw new ArgumentNullException("Report cannot be null.", "closeReport"); }
 
             DockingPanel.Children.Remove(report);
             save_existing_reports();
@@ -194,9 +186,7 @@ namespace BirdTracker
         public void closeExcludes(ExcludeListUC report)
         {
             if (report == null)
-            {
-                throw new ArgumentNullException("report control cannot be null", "closeExcludes");
-            }
+                { throw new ArgumentNullException("Report control cannot be null.", "closeExcludes"); }
 
             DockingPanel.Children.Remove(report);
         }
@@ -256,7 +246,6 @@ namespace BirdTracker
             name_library.save_library();
         }
 
-
         /// <summary>
         /// Add the provided species to the global exclude list.
         /// </summary>
@@ -266,9 +255,7 @@ namespace BirdTracker
         public bool add_species_to_exclude_list(String scientific_name)
         {
             if (String.IsNullOrEmpty(scientific_name))
-            {
-                throw new ArgumentException("The scientific name cannot be blank", "add_species_to_exclude_list");
-            }
+                { throw new ArgumentException("The scientific name cannot be blank.", "add_species_to_exclude_list"); }
 
             bool added = exclude_library.add_item_to_library(scientific_name);
             return (added);
@@ -283,9 +270,7 @@ namespace BirdTracker
         public bool remove_species_from_exclude_list(String scientific_name)
         {
             if (String.IsNullOrEmpty(scientific_name))
-            {
-                throw new ArgumentException("The scientific name cannot be blank", "remove_species_from_exclude_list");
-            }
+                { throw new ArgumentException("The scientific name cannot be blank.", "remove_species_from_exclude_list"); }
 
             bool removed = exclude_library.remove_item_from_library(scientific_name);
             return (removed);
@@ -328,6 +313,5 @@ namespace BirdTracker
                 }
             }
         }
-
     }
 }

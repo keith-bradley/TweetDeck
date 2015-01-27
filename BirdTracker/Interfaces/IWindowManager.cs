@@ -1,9 +1,9 @@
-﻿using System;
-using BirdTracker.Exclude_Librarian;
-
-/// Author: Keith Bradley
+﻿/// Author: Keith Bradley
 ///         Ottawa, Ontario, Canada
 ///         Copyright 2015
+
+using System;
+using BirdTracker.Exclude_Librarian;
 
 namespace BirdTracker.Interfaces
 {
@@ -47,7 +47,6 @@ namespace BirdTracker.Interfaces
         /// Ask all columns to re-fetch the data that they are showing.
         /// </summary>
         void refresh_columns();
-
 
         /// <summary>
         /// View the Excludes list.

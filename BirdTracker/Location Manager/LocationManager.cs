@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using BirdTracker.Interfaces;
-
-/// Author: Keith Bradley
+﻿/// Author: Keith Bradley
 ///         Ottawa, Ontario, Canada
 ///         Copyright 2015
+
+using System;
+using System.Collections.Generic;
+using BirdTracker.Interfaces;
 
 namespace BirdTracker.Location_Manager
 {
@@ -44,13 +44,9 @@ namespace BirdTracker.Location_Manager
                                 string strRealWorldLocation)
         {
             if (String.IsNullOrEmpty(strEBirdLocation))
-            {
-                throw new ArgumentException("Ebird location cannot be empty.", "add_mapping");
-            }
+                { throw new ArgumentException("Ebird location cannot be empty.", "add_mapping"); }
             else if (String.IsNullOrEmpty(strRealWorldLocation))
-            {
-                throw new ArgumentException("Real world location cannot be empty.", "add_mapping");
-            }
+                { throw new ArgumentException("Real world location cannot be empty.", "add_mapping"); }
             
             bool bAdded = false;
             if (!_dictionary.ContainsKey(strEBirdLocation))
@@ -73,13 +69,9 @@ namespace BirdTracker.Location_Manager
                                    string strRealWorldLocation)
         {
             if (String.IsNullOrEmpty(strEBirdLocation))
-            {
-                throw new ArgumentException("Ebird location cannot be empty.", "remove_mapping");
-            }
+                { throw new ArgumentException("Ebird location cannot be empty.", "remove_mapping"); }
             else if (String.IsNullOrEmpty(strRealWorldLocation))
-            {
-                throw new ArgumentException("Real world location cannot be empty.", "remove_mapping");
-            }
+                { throw new ArgumentException("Real world location cannot be empty.", "remove_mapping"); }
 
             bool bRemoved = false;
             if (_dictionary.ContainsKey(strEBirdLocation))
@@ -97,9 +89,7 @@ namespace BirdTracker.Location_Manager
         public string get_real_world_location(string strEBirdLocation)
         {
             if (String.IsNullOrEmpty(strEBirdLocation))
-            {
-                throw new ArgumentException("EBird Location cannot be null", "get_real_world_location");
-            }
+                { throw new ArgumentException("EBird Location cannot be null", "get_real_world_location"); }
 
             string location = "";
             if ( _dictionary.ContainsKey(strEBirdLocation))

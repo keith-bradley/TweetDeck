@@ -1,8 +1,11 @@
-﻿using System;
+﻿/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 
 namespace BirdTracker.Pin_Map
 {
@@ -45,9 +48,7 @@ namespace BirdTracker.Pin_Map
         {
             if (((latitude < -90.00) || (latitude > 90.00)) ||
                  (longitude < -180.00) || (longitude > 180.00))
-            {
-                throw new ArgumentException("Invalid Lat & Long", "set_map_location");
-            }
+                { throw new ArgumentException("Invalid Lat & Long", "set_map_location"); }
 
             CURRENT_MAP_LOCATION = new LatLongPair(latitude: latitude, longitude: longitude);            
         }
@@ -61,9 +62,7 @@ namespace BirdTracker.Pin_Map
         public void set_map_location(LatLongPair pair)
         {
             if (pair == null)
-            {
-                throw new ArgumentNullException("Pair cannot be null.", "set_map_location");
-            }
+                { throw new ArgumentNullException("Pair cannot be null.", "set_map_location"); }
 
             CURRENT_MAP_LOCATION = pair;            
         }
@@ -79,9 +78,7 @@ namespace BirdTracker.Pin_Map
         {
             if (((latitude < -90.00) || (latitude > 90.00)) ||
                  (longitude < -180.00) || (longitude > 180.00))
-            {
-                throw new ArgumentException("Invalid Lat & Long", "set_map_location");
-            }
+                { throw new ArgumentException("Invalid Lat & Long", "set_map_location"); }
 
             var pair = new LatLongPair(latitude: latitude, longitude: longitude);
             _lst_of_pins.Add(pair);
@@ -97,9 +94,7 @@ namespace BirdTracker.Pin_Map
         public bool add_pin_to_map(LatLongPair pair)
         {
             if (pair == null)
-            {
-                throw new ArgumentNullException("Pair cannot be null.", "add_pin_to_map");
-            }
+                { throw new ArgumentNullException("Pair cannot be null.", "add_pin_to_map"); }
 
             _lst_of_pins.Add(pair);
             return (true);
@@ -114,9 +109,7 @@ namespace BirdTracker.Pin_Map
         public bool add_pins_to_map(IEnumerable<LatLongPair> colCoordinates)
         {
             if (colCoordinates == null)
-            {
-                throw new ArgumentNullException("colCoordinates cannot be null", "add_pins_to_map");
-            }
+                { throw new ArgumentNullException("colCoordinates cannot be null", "add_pins_to_map"); }
 
             if (colCoordinates != null) { _lst_of_pins.AddRange(colCoordinates); }
             return (true);
@@ -133,9 +126,7 @@ namespace BirdTracker.Pin_Map
         {
             if (((latitude < -90.00) || (latitude > 90.00)) ||
                 (longitude < -180.00) || (longitude > 180.00))
-            {
-                throw new ArgumentException("Invalid Lat & Long", "set_map_location");
-            }
+                { throw new ArgumentException("Invalid Lat & Long", "set_map_location"); }
 
             return (true);
         }
@@ -149,9 +140,7 @@ namespace BirdTracker.Pin_Map
         public bool remove_pin_from_map(LatLongPair pair)
         {
             if (pair == null)
-            {
-                throw new ArgumentNullException("pair cannot be null");
-            }
+                { throw new ArgumentNullException("pair cannot be null"); }
 
             return (true);
         }
@@ -164,9 +153,7 @@ namespace BirdTracker.Pin_Map
         public bool remove_pins_from_map(IEnumerable<LatLongPair> colCoordinates)
         {
             if (colCoordinates == null)
-            {
-                throw new ArgumentNullException("colCoordinates cannot be null.", "remove_pins_from_map");
-            }
+                { throw new ArgumentNullException("colCoordinates cannot be null.", "remove_pins_from_map"); }
                         
             return (true);
         }

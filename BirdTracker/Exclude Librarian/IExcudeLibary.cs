@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-
-/// Author: Keith Bradley
+﻿/// Author: Keith Bradley
 ///         Ottawa, Ontario, Canada
 ///         Copyright 2015
+
+using System;
+using System.Collections.Generic;
 
 namespace BirdTracker.Exclude_Librarian
 {

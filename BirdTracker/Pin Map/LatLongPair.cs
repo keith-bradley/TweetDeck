@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿/// Author: Keith Bradley
+///         Ottawa, Ontario, Canada
+///         Copyright 2015
+
+using System;
 
 namespace BirdTracker.Pin_Map
 {
@@ -35,7 +36,6 @@ namespace BirdTracker.Pin_Map
             Latitude = latitude;
             Longitude = longitude;
         }
-
 
         private double _lat;
         public double Latitude

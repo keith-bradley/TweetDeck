@@ -1,8 +1,8 @@
-﻿using System;
-
-/// Author: Keith Bradley
+﻿/// Author: Keith Bradley
 ///         Ottawa, Ontario, Canada
 ///         Copyright 2015
+
+using System;
 
 namespace BirdTracker.Name_Librarian
 {
@@ -62,7 +62,5 @@ namespace BirdTracker.Name_Librarian
         /// Load the library.
         /// </summary>        
         void load_library();
-
-
     }
 }

@@ -1,8 +1,8 @@
-﻿using System;
-
-/// Author: Keith Bradley
+﻿/// Author: Keith Bradley
 ///         Ottawa, Ontario, Canada
 ///         Copyright 2015
+
+using System;
 
 namespace BirdTracker.Interfaces
 {
