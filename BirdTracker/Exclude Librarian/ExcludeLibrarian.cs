@@ -4,10 +4,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
-using System.Xml.Linq;
 using BirdTracker.Support;
 
 namespace BirdTracker.Exclude_Librarian
@@ -46,9 +44,7 @@ namespace BirdTracker.Exclude_Librarian
         public bool add_item_to_library(string scientific_name)
         {
             if (String.IsNullOrEmpty(scientific_name))
-            {
-                throw new ArgumentException("Cannot add a blank item to the library.", "add_item_to_library");
-            }
+                { throw new ArgumentException("Cannot add a blank item to the library.", "add_item_to_library"); }
 
             bool bAdded = false;
             if (!_library.ContainsKey(scientific_name))
@@ -73,9 +69,7 @@ namespace BirdTracker.Exclude_Librarian
         public bool remove_item_from_library(string scientific_name)
         {
             if (String.IsNullOrEmpty(scientific_name))
-            {
-                throw new ArgumentException("Cannot remove a blank item from the library.", "remove_item_from_library");
-            }
+                { throw new ArgumentException("Cannot remove a blank item from the library.", "remove_item_from_library"); }
 
             bool bRemoved = false;
             if (_library.ContainsKey(scientific_name))
@@ -95,9 +89,7 @@ namespace BirdTracker.Exclude_Librarian
         public bool item_is_in_library(string scientific_name)
         {
             if (String.IsNullOrEmpty(scientific_name))
-            {
-                throw new ArgumentException("Cannot look up a blank item.", "item_is_in_library");
-            }
+                { throw new ArgumentException("Cannot look up a blank item.", "item_is_in_library"); }
 
             bool bIsInLibrary = _library.ContainsKey(scientific_name);
             return (bIsInLibrary);
