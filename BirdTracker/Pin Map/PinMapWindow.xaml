@@ -15,7 +15,14 @@
             <ColumnDefinition Width="*"/>            
         </Grid.ColumnDefinitions>
         <m:Map Name="theMap" CredentialsProvider="AlgGlvdk8YG15kLf44UFdyq18MtBB890r0NnItZb3187ryBDswn9xuq3h58Oo5vX"
-               Center="45.52,-75.43" ZoomLevel="10" VerticalContentAlignment="Stretch">                       
+               Center="{Binding Path=CENTRE_OF_MAP, Mode=TwoWay}" ZoomLevel="10" VerticalContentAlignment="Stretch">
+            <m:MapItemsControl ItemsSource="{Binding Path=LIST_OF_PUSHPINS}">
+                <m:MapItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <m:Pushpin Location="{Binding Location}" />
+                    </DataTemplate>                    
+                </m:MapItemsControl.ItemTemplate>
+            </m:MapItemsControl>
         </m:Map>        
     </Grid>
 </Window>

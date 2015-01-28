@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using Microsoft.Maps.MapControl.WPF;
+using System.Linq;
 
 namespace BirdTracker.Pin_Map
 {
@@ -34,13 +35,22 @@ namespace BirdTracker.Pin_Map
 
             if (MainGrid.DataContext != null)
             {
+                var vm = MainGrid.DataContext as PinMapWindowVM;
+               
+                List<Pushpin> colPushPins = new List<Pushpin>();
                 foreach (var pin_data in collection_of_locations_to_be_pinned)
                 {
                     var pin = new Pushpin();
                     pin.Location = new Location(latitude: pin_data.Latitude, longitude: pin_data.Longitude);
-                    pin.ToolTip = String.Format("{0} ({1})",pin_data.TOOL_TIP_TITLE, pin_data.DATE_REPORTED);                    
-                    theMap.Children.Add(pin);
+                    pin.ToolTip = String.Format("{0} ({1})",pin_data.TOOL_TIP_TITLE, pin_data.DATE_REPORTED);
+                    colPushPins.Add(pin);                    
                 }
+                vm.LIST_OF_PUSHPINS = colPushPins;
+
+                var first = collection_of_locations_to_be_pinned.First();
+                vm.CENTRE_OF_MAP = new Location(latitude: first.Latitude, longitude: first.Longitude);
+                
+                //theMap.Center = new Location(latitude: first.Latitude, longitude: first.Longitude);
             }            
         }
 
