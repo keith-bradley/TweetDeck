@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Windows.Input;
 using BirdTracker.Interfaces;
 using BirdTracker.Support;
+using BirdTracker.Pin_Map;
 
 namespace BirdTracker.Mapping
 {
@@ -27,22 +28,16 @@ namespace BirdTracker.Mapping
 
             // Hook up the commands
             GENERATE_REPORT_CMD = new RelayCommand(new Action<object>(generateReport));
+            _lat_long_pair = new LatLongPair();
         }
 
-        private double _lat;
-        public double LATT  
+        private LatLongPair _lat_long_pair;
+        public LatLongPair LAT_LONG_PAIR
         {
-            get { return _lat; }
-            set { _lat = value; }
+            get { return _lat_long_pair; }
+            set { _lat_long_pair = value; }
         }
-
-        private double _long;
-        public double LONG
-        {
-            get { return _long; }
-            set { _long = value; }
-        }
-        
+                          
         /// <summary>
         /// Generate a report CMD
         /// </summary>
@@ -83,8 +78,8 @@ namespace BirdTracker.Mapping
                 case "All":
                 {
                     rep = new ReportRequest(ReportType.eSIGHTINGSNEARALOCATION);
-                    rep.LAT_LONG_PAIR.Latitude = Math.Round(LATT, 2); 
-                    rep.LAT_LONG_PAIR.Longitude = Math.Round(LONG, 2);
+                    rep.LAT_LONG_PAIR.Latitude = Math.Round(LAT_LONG_PAIR.Latitude, 2);
+                    rep.LAT_LONG_PAIR.Longitude = Math.Round(LAT_LONG_PAIR.Longitude, 2);
                     rep.REPORT_TITLE = String.Format("All Birds near Lattitude: {0} Longitude: {1}", 
                                                      rep.LAT_LONG_PAIR.Latitude, rep.LAT_LONG_PAIR.Longitude);
                 }
@@ -92,8 +87,8 @@ namespace BirdTracker.Mapping
                 case "Notable":
                 {
                     rep = new ReportRequest(ReportType.eNOTABLE_SIGHTINGS);
-                    rep.LAT_LONG_PAIR.Latitude = Math.Round(LATT, 2);
-                    rep.LAT_LONG_PAIR.Longitude = Math.Round(LONG, 2);
+                    rep.LAT_LONG_PAIR.Latitude = Math.Round(LAT_LONG_PAIR.Latitude, 2);
+                    rep.LAT_LONG_PAIR.Longitude = Math.Round(LAT_LONG_PAIR.Longitude, 2);
                     rep.REPORT_TITLE = String.Format("Notable Birds near Lattitude: {0} Longitude: {1}", 
                                                      rep.LAT_LONG_PAIR.Latitude, rep.LAT_LONG_PAIR.Longitude);
                 }

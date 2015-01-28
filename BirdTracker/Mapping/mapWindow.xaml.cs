@@ -61,8 +61,8 @@ namespace BirdTracker.Mapping
                mapWindowVM vm = MainGrid.DataContext as mapWindowVM;
                if (vm != null)
                {
-                   vm.LATT = bounds.Northwest.Latitude;
-                   vm.LONG = bounds.Southeast.Longitude;
+                   vm.LAT_LONG_PAIR.Latitude = bounds.Northwest.Latitude;
+                   vm.LAT_LONG_PAIR.Longitude = bounds.Southeast.Longitude;
                }
         }
 

@@ -36,8 +36,22 @@ namespace BirdTracker
     public partial class MainWindow : Window, IWindowManager
     {
         private IExcudeLibary exclude_library = ExcludeLibrarian.EXCLUDE_LIBRARIAN;
-        private INameLibrary name_library     = NameLibrarian.NAME_LIBRARIAN;  
-     
+        private INameLibrary name_library     = NameLibrarian.NAME_LIBRARIAN;
+
+        private readonly string xml_main_window_state = "main_window_state";
+        private readonly string xml_columns           = "columns";
+        private readonly string xml_column            = "column";
+        private readonly string xml_column_position   = "column_position";
+        private readonly string xml_report_request    = "Report_Request";
+        private readonly string xml_report_title      = "report_title";
+        private readonly string xml_report_type       = "report_type";
+        private readonly string xml_lattitude         = "lattitude";
+        private readonly string xml_longitude         = "longitude";
+        private readonly string xml_hot_spots         = "hot_spots";
+        private readonly string xml_spot              = "spot";
+        private readonly string xml_species           = "species";
+
+
         /// <summary>
         /// CTOR
         /// </summary>
@@ -66,32 +80,32 @@ namespace BirdTracker
         /// </summary>
         public void save_existing_reports()
         {
-            StringBuilder sbXML = new StringBuilder("<main_window_state>");
+            StringBuilder sbXML = new StringBuilder(String.Format("<{0}>", xml_main_window_state));
             if ((DockingPanel.Children != null) && 
                 (DockingPanel.Children.Count > 0))
             {
-                sbXML.Append("<columns>");
+                sbXML.Append(String.Format("<{0}>", xml_columns));
 
                 int column_position = 0;
                 foreach (var col in DockingPanel.Children)
                 {
                     if (col.GetType() == typeof(GenericBirdSightingsReport))
                     {
-                        var bgsr = col as GenericBirdSightingsReport;                        
-                        sbXML.Append("<column>");
-                        sbXML.AppendFormat("<column_position>{0}</column_position>", column_position++ );
+                        var bgsr = col as GenericBirdSightingsReport;
+                        sbXML.Append(String.Format("<{0}>", xml_column));
+                        sbXML.AppendFormat("<{1}>{0}</{1}>", column_position++, xml_column_position);
                         var report_request = bgsr.REPORT_REQUEST;
                         if (report_request != null)
                         {
                             sbXML.Append(report_request.to_xml());
                         }
-                        sbXML.Append("</column>");
+                        sbXML.Append(String.Format("</{0}>", xml_column));
                     }
                 }                
             }
 
-            sbXML.Append("</columns>");
-            sbXML.Append("</main_window_state>");
+            sbXML.Append(String.Format("</{0}>", xml_columns));
+            sbXML.Append(String.Format("</{0}>", xml_main_window_state));
 
             Properties.Settings.Default.MAIN_WINDOW_STATE = sbXML.ToString();
             Properties.Settings.Default.Save();                       
@@ -124,22 +138,22 @@ namespace BirdTracker
                     var xdoc = Utilities.load_xml_from_string(saved_state);
                     if (xdoc != null)
                     {
-                        List<column_report_requests> lstColumns = (from _rep in xdoc.Element("main_window_state").Elements("columns").Elements("column")
+                        List<column_report_requests> lstColumns = (from _rep in xdoc.Element(xml_main_window_state).Elements(xml_columns).Elements(xml_column)
                                                                    select new column_report_requests
                                                                    {
-                                                                       _column_position = (string)_rep.Element("column_position"),
-                                                                       _report_request = (from _rep_req in _rep.Elements("Report_Request")
+                                                                       _column_position = (string)_rep.Element(xml_column_position),
+                                                                       _report_request = (from _rep_req in _rep.Elements(xml_report_request)
                                                                                           select new ReportRequest
                                                                                           {
-                                                                                              REPORT_TITLE  = (string)_rep_req.Element("report_title"),
-                                                                                              REPORT_TYPE   = (ReportType)Enum.Parse(typeof(ReportType), ((string)_rep_req.Element("report_type"))),
+                                                                                              REPORT_TITLE = (string)_rep_req.Element(xml_report_title),
+                                                                                              REPORT_TYPE  = (ReportType)Enum.Parse(typeof(ReportType), ((string)_rep_req.Element(xml_report_type))),
                                                                                               LAT_LONG_PAIR  = new LatLongPair
                                                                                               {
-                                                                                                Latitude    = Double.Parse((string)_rep_req.Element("lattitude")),
-                                                                                                Longitude   = Double.Parse((string)_rep_req.Element("longitude")),
+                                                                                                  Latitude = Double.Parse((string)_rep_req.Element(xml_lattitude)),
+                                                                                                  Longitude = Double.Parse((string)_rep_req.Element(xml_longitude)),
                                                                                               },
-                                                                                              HOT_SPOTS     = _rep_req.Elements("hot_spots").Elements("spot").Select(xe => xe.Value).ToList(),
-                                                                                              SPECIES       = (string) _rep_req.Element("species")
+                                                                                              HOT_SPOTS = _rep_req.Elements(xml_hot_spots).Elements(xml_spot).Select(xe => xe.Value).ToList(),
+                                                                                              SPECIES   = (string)_rep_req.Element(xml_species)
                                                                                           }).SingleOrDefault()
                                                                    }).ToList();
 

@@ -21,6 +21,13 @@ namespace BirdTracker.Name_Librarian
         private Dictionary<string, string> common_to_scientific_dictionary = new Dictionary<string, string>();
         private Dictionary<string, string> scientific_to_common_dictionary = new Dictionary<string, string>();
 
+        private readonly string _xml_name_library = "name_library";
+        private readonly string _xml_items = "items";
+        private readonly string _xml_item = "item";
+        private readonly string _xml_common = "common";
+        private readonly string _xml_scientific = "scientific";
+
+
         private static NameLibrarian _librarian = new NameLibrarian();       
         public static NameLibrarian NAME_LIBRARIAN
         {
@@ -142,13 +149,15 @@ namespace BirdTracker.Name_Librarian
             if ((common_to_scientific_dictionary.Count > 0) && 
                 (scientific_to_common_dictionary.Count > 0))
             {
-                StringBuilder sb = new StringBuilder("<name_library><items>");
+                StringBuilder sb = new StringBuilder(String.Format("<{0}><{1}>", _xml_name_library, _xml_items));
                 foreach (var item in common_to_scientific_dictionary.Keys)
                 {
-                    sb.AppendFormat("<item><common>{0}</common><scientific>{1}</scientific></item>", item, common_to_scientific_dictionary[item]);
+                    sb.AppendFormat("<{2}><{3}>{0}</{3}><{4}>{1}</{4}></{2}>",
+                                    item, common_to_scientific_dictionary[item],
+                                    _xml_item, _xml_common, _xml_scientific);
                 }
 
-                sb.Append("</items></name_library>");
+                sb.Append(String.Format("</{0}></{1}>", _xml_items, _xml_name_library));
 
                 Properties.Settings.Default.NAME_LIBRARY = sb.ToString();
                 Properties.Settings.Default.Save();
@@ -168,11 +177,11 @@ namespace BirdTracker.Name_Librarian
                 var xDoc = Utilities.load_xml_from_string(Properties.Settings.Default.NAME_LIBRARY);
                 if (xDoc != null)
                 {
-                    var list = (from item in xDoc.Root.Element("items").Elements("item")
+                    var list = (from item in xDoc.Root.Element(_xml_items).Elements(_xml_item)
                                         select new string_pair 
                                 {
-                                    KEY     = (string) item.Element("common"),
-                                    VALUE   = (string) item.Element("scientific")
+                                    KEY = (string)item.Element(_xml_common),
+                                    VALUE = (string)item.Element(_xml_scientific)
                                 }).ToList();
 
                     if ((list != null) && (list.Count > 0))
