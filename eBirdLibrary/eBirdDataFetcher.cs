@@ -41,6 +41,7 @@ namespace eBirdLibrary
                 var wc = new WebClient();
                 using (wc)
                 {
+                    wc.Encoding = Encoding.UTF8;
                     strWebPage = wc.DownloadString(strURL);
                 }                
             }
@@ -58,6 +59,12 @@ namespace eBirdLibrary
             ObservableCollection<BirdSighting> results = null;
             if (!String.IsNullOrEmpty(strXMLWebResult))
             {
+                //byte[] encodedString = Encoding.UTF8.GetBytes(strXMLWebResult);
+                //MemoryStream ms = new MemoryStream(encodedString);
+                //ms.Flush();
+                //ms.Position = 0;
+                //XDocument document = XDocument.Load(ms);
+
                 XDocument document = XDocument.Load(new StringReader(strXMLWebResult));
               
                 var sightingsEnum = from sighting in document.Element("response").Element("result").Elements("sighting")
