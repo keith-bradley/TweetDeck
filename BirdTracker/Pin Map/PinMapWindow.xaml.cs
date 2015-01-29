@@ -48,9 +48,7 @@ namespace BirdTracker.Pin_Map
                 vm.LIST_OF_PUSHPINS = colPushPins;
 
                 var first = collection_of_locations_to_be_pinned.First();
-                vm.CENTRE_OF_MAP = new Location(latitude: first.Latitude, longitude: first.Longitude);
-                
-                //theMap.Center = new Location(latitude: first.Latitude, longitude: first.Longitude);
+                vm.CENTRE_OF_MAP = new Location(latitude: first.Latitude, longitude: first.Longitude);                               
             }            
         }
 
