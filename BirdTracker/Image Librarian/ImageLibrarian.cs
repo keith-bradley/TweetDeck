@@ -138,8 +138,10 @@ namespace BirdTracker.Image_Librarian
                     BitmapImage bi = new BitmapImage();
 
                     bi.BeginInit();
+                    bi.CacheOption = BitmapCacheOption.OnLoad;
                     bi.UriSource = new Uri(strPath, UriKind.RelativeOrAbsolute);
                     bi.EndInit();
+                    
 
                     src = bi;
                     if (!_LoadedThumbNails.ContainsKey(strScientificName))
