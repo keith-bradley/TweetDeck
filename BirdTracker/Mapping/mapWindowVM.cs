@@ -55,14 +55,26 @@ namespace BirdTracker.Mapping
             set { _ReportStrings = value; }
         }
 
+        private string _selected_report;
+        public string SELECTED_REPORT
+        {
+            get { return _selected_report; }
+            set { 
+                    _selected_report = value;
+                    OnPropertyChanged("SELECTED_REPORT");        
+                }
+        }
+        
         /// <summary>
         /// 
         /// </summary>
         private void initReportStrings()
-        {
-            REPORT_STRINGS = new ObservableCollection<string>();
+        {      
+            REPORT_STRINGS = new ObservableCollection<string>();                       
             REPORT_STRINGS.Add("All");
             REPORT_STRINGS.Add("Notable");
+
+            SELECTED_REPORT = "All";
         }
 
         /// <summary>

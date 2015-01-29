@@ -21,7 +21,7 @@
             <m:Pushpin Location="45.42,-75.70"/>
         </m:Map>
         <StackPanel Grid.Row="1"  Grid.Column="1" >
-            <ComboBox Name="ReportType" ItemsSource="{Binding Source={StaticResource MapWindowVM}, Path=REPORT_STRINGS}" SelectedValue="{Binding Source={StaticResource MapWindowVM}, Path=REPORT_STRINGS}" SelectedIndex="0" Height="24" />            
+            <ComboBox Name="ReportType" ItemsSource="{Binding Source={StaticResource MapWindowVM}, Path=REPORT_STRINGS}" SelectedValue="{Binding Source={StaticResource MapWindowVM}, Path=SELECTED_REPORT}" SelectedIndex="0" Height="24" />            
             <Button Content="Create Report" Height="23" Name="TrackBtn" Width="Auto" Command="{Binding Path=GENERATE_REPORT_CMD}" CommandParameter="{Binding Path=REPORT_STRINGS/}" />
         </StackPanel>
     </Grid>
