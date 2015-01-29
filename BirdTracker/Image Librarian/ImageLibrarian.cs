@@ -13,11 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
 namespace BirdTracker.Image_Librarian
-{
-    // To do: The images are stored as thumbnails of their scientific name, however this leads to a problem when
-    //        the scientific name has invalid file characters in it. Code currently try/catches this problem but its
-    //        a ugly solution which leads to no images being displayed in this scenario. Holding my nose for now.
-
+{  
     /// <summary>
     /// The image librarian (Singleton) is used to make the fetching and displaying of thumbnail images more
     /// efficient. It keeps a cache of images on the local machine hd and can be used to fetch a thumbnail from the web
@@ -84,9 +80,10 @@ namespace BirdTracker.Image_Librarian
             String strURL = "";
             if (!String.IsNullOrEmpty(strScientificName))
             {
-                if (_storedThumbNails.ContainsKey(strScientificName))
+                var key = strScientificName.Replace('/', '_');
+                if (_storedThumbNails.ContainsKey(key))
                 {
-                    strURL = _storedThumbNails[strScientificName];
+                    strURL = _storedThumbNails[key];
                 }
             }
 
@@ -108,36 +105,54 @@ namespace BirdTracker.Image_Librarian
             {
                 lock (lck)
                 {
-                    if (_LoadedThumbNails.ContainsKey(strScientificName))
+                    if (_LoadedThumbNails.ContainsKey(strScientificName.Replace('/', '_')))
                     {
                         src = _LoadedThumbNails[strScientificName];
                     }
                     else
                     {
                         var strPath = getImageURL(strScientificName);
-                        if (!String.IsNullOrEmpty(strPath))
-                        {
-                            // Load it into memory and save it so we can reuse it.
-                            try
-                            {
-                                BitmapImage bi = new BitmapImage();
-
-                                bi.BeginInit();
-                                bi.UriSource = new Uri(strPath, UriKind.RelativeOrAbsolute);
-                                bi.EndInit();
-
-                                src = bi;
-                                _LoadedThumbNails.Add(strScientificName, src);
-                            }
-                            catch (Exception e)
-                            {
-                                ;
-                            }
-                        }
+                        src = load_image_from_file(strPath, strScientificName);                                               
                     }
                 }
              }
             
+            return (src);
+        }
+
+        /// <summary>
+        /// Load an image into a bitmap source and save it in the library.
+        /// </summary>
+        /// <param name="strPath"></param>
+        /// <param name="strScientificName"></param>
+        /// <returns></returns>
+        private BitmapSource load_image_from_file(String strPath, String strScientificName)
+        {
+            BitmapSource src = null;
+
+            if (!String.IsNullOrEmpty(strPath))
+            {
+                // Load it into memory and save it so we can reuse it.
+                try
+                {
+                    BitmapImage bi = new BitmapImage();
+
+                    bi.BeginInit();
+                    bi.UriSource = new Uri(strPath, UriKind.RelativeOrAbsolute);
+                    bi.EndInit();
+
+                    src = bi;
+                    if (!_LoadedThumbNails.ContainsKey(strScientificName))
+                    {
+                        _LoadedThumbNails.Add(strScientificName, src);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Trace.Write("Caught exception: " + e.Message);
+                }
+            }
+
             return (src);
         }
 
@@ -153,8 +168,7 @@ namespace BirdTracker.Image_Librarian
             Task<BitmapSource> tsk = null;
             if (!String.IsNullOrEmpty(strScientificName) &&
                 (!_images_currently_being_retrieved.ContainsKey(strScientificName)) &&
-                (!FilePathHasInvalidChars(strScientificName)) &&
-                (!fileNameHasInvalidChars(strScientificName))
+                (!FilePathHasInvalidChars(strScientificName)) 
             )
             {
                 BitmapImage bi = new BitmapImage();
@@ -193,52 +207,36 @@ namespace BirdTracker.Image_Librarian
                                     System.Diagnostics.Trace.WriteLine("Query finished for" + DateTime.Now + imageResult.Title);
 
                                     // Now download the data asynchronously
-                                    var wc = new WebClient();
-
+                                    var wc = new WebClient();    
+                                    
                                     //object sender, DownloadDataCompletedEventArgs e
                                     wc.DownloadDataCompleted += (obj, args) =>
                                     {
                                         DownloadDataCompletedEventArgs e = args;
                                         if (e != null)
                                         {
-                                            try
+                                            var byte_image = e.Result;
+                                            if (byte_image != null)
                                             {
-                                                var byte_image = e.Result;
-                                                if (byte_image != null)
-                                                {
-                                                    if (!Directory.Exists(Directory.GetCurrentDirectory() + "\\ThumbNails"))
-                                                    {
-                                                        Directory.CreateDirectory(Directory.GetCurrentDirectory() + "\\ThumbNails");
-                                                    }
+                                                ensure_thumbnail_directory_exists();
 
-                                                    String strExtenstion = Path.GetExtension(imageResult.MediaUrl);
-                                                    filenamePath = Directory.GetCurrentDirectory() + "\\ThumbNails\\" + query.Replace("/", "_") + strExtenstion;
+                                                String strExtenstion = Path.GetExtension(imageResult.MediaUrl);
+                                                filenamePath = String.Format("{0}{1}{2}{3}",
+                                                                             Directory.GetCurrentDirectory(),
+                                                                             "\\ThumbNails\\",
+                                                                             query.Replace("/", "_"), 
+                                                                             strExtenstion);
 
-                                                    try
-                                                    {
-                                                        System.Diagnostics.Trace.WriteLine("Saving thumbnail: " + filenamePath);
-                                                        File.WriteAllBytes(filenamePath, byte_image);
+                                                System.Diagnostics.Trace.WriteLine("Saving thumbnail: " + filenamePath);
+                                                File.WriteAllBytes(filenamePath, byte_image);
 
-                                                        bi.BeginInit();
-                                                        bi.UriSource = new Uri(filenamePath, UriKind.RelativeOrAbsolute);
-                                                        bi.EndInit();
-
-                                                        _LoadedThumbNails.Add(strScientificName, bi);
-                                                    }
-                                                    catch (Exception ex)
-                                                    {
-                                                        System.Diagnostics.Trace.WriteLine(ex.Message);
-                                                    }
-                                                }
-                                            }
-                                            catch (Exception e2)
-                                            {
-                                                System.Diagnostics.Trace.WriteLine(e2.Message);
-                                            }
+                                                load_image_from_file(filenamePath, strScientificName);                                                
+                                            }                                                                                  
                                         }
                                     };
 
                                     wc.DownloadDataAsync(new Uri(imageResult.MediaUrl));
+                                    wc.Dispose();
                                 }
                             }
                         });                        
@@ -260,12 +258,33 @@ namespace BirdTracker.Image_Librarian
                         
             return (tsk);
         }
-     
+
+        /// <summary>
+        /// Makes sure that the thumbnail directory exists on the drive.
+        /// </summary>
+        private void ensure_thumbnail_directory_exists()
+        {
+            if (!Directory.Exists(Directory.GetCurrentDirectory() + "\\ThumbNails"))
+            {
+                Directory.CreateDirectory(Directory.GetCurrentDirectory() + "\\ThumbNails");
+            }
+        }
+
+        /// <summary>
+        /// Tests if the provided path has invalid characters in it.
+        /// </summary>
+        /// <param name="path">path under test.</param>
+        /// <returns>True if invalid characters, false otherwise.</returns>
         public static bool FilePathHasInvalidChars(string path)
         {
             return (!string.IsNullOrEmpty(path) && path.IndexOfAny(System.IO.Path.GetInvalidPathChars()) >= 0);
         }
 
+        /// <summary>
+        /// Tests if the provided file name has invalid characters in it.
+        /// </summary>
+        /// <param name="filename">file name under test.</param>
+        /// <returns>True if the file name has invalid characters, false otherwise.</returns>
         public static bool fileNameHasInvalidChars(string filename)
         {
             return (!string.IsNullOrEmpty(filename) && filename.IndexOfAny(System.IO.Path.GetInvalidFileNameChars()) >= 0);
